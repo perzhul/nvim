@@ -90,4 +90,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.keymap.set('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
+vim.keymap.set('n', '<leader>gh', '<cmd>Telescope git_file_history<CR>', { desc = 'Open git file history' })
 -- vim: ts=2 sts=2 sw=2 et
