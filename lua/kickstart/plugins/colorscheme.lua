@@ -1,9 +1,12 @@
 return {
+  'rafi/awesome-vim-colorschemes',
+  'miikanissi/modus-themes.nvim',
+  'nyoom-engineering/oxocarbon.nvim',
   {
     'catppuccin/nvim',
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme 'modus'
       vim.cmd.hi 'Comment gui=none'
     end,
   },

@@ -14,6 +14,7 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'isak102/telescope-git-file-history.nvim', dependencies = { 'tpope/vim-fugitive' } },
     },
 
     config = function()
@@ -22,10 +23,27 @@ return {
       --
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local gfh_actions = require('telescope').extensions.git_file_history.actions
+
       require('telescope').setup {
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
+          },
+          git_file_history = {
+            -- Keymaps inside the picker
+            mappings = {
+              i = {
+                ['<C-g>'] = gfh_actions.open_in_browser,
+              },
+              n = {
+                ['<C-g>'] = gfh_actions.open_in_browser,
+              },
+            },
+
+            -- The command to use for opening the browser (nil or string)
+            -- If nil, it will check if xdg-open, open, start, wslview are available, in that order.
+            browser_command = nil,
           },
         },
       }
@@ -33,6 +51,7 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'git_file_history')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -45,6 +64,7 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>sc', builtin.colorscheme, { desc = '[S]earch [C]olorscheme' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme

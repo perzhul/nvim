@@ -1,6 +1,11 @@
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'folke/ts-comments.nvim',
+    opts = {},
+    event = 'VeryLazy',
+    enabled = vim.fn.has 'nvim-0.10.0' == 1,
+  },
 
   require 'kickstart/plugins/gitsigns',
 

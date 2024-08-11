@@ -1,8 +1,15 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+local silent_noremap = { silent = true, noremap = true }
+
+vim.keymap.set('n', '<leader>w', '<cmd>update<cr>', { desc = 'save buffer' })
+
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+
+vim.keymap.set('n', '<leader>-', ':sp<CR><C-w>j', silent_noremap)
+vim.keymap.set('n', '<leader>_', ':vsp<CR><C-w>l', silent_noremap)
 
 vim.keymap.set('n', '<Up>', '<nop>')
 vim.keymap.set('n', '<Down>', '<nop>')
@@ -31,10 +38,10 @@ vim.keymap.set('n', 'Q', '<nop>')
 vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
-vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
+vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>hh', '<cmd>cnext<CR>zz', { desc = 'Go to next quickfix item' })
+vim.keymap.set('n', '<leader>;', '<cmd>cprev<CR>zz', { desc = 'Go to previous quickfix item' })
+vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>', { desc = 'Close quickfix list' })
 
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set('n', '<leader>xx', '<cmd>!chmod +x %<CR>', { silent = true })
@@ -82,4 +89,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.keymap.set('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
 -- vim: ts=2 sts=2 sw=2 et
