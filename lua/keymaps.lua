@@ -39,6 +39,7 @@ map({ 'n', 'v' }, '<leader>d', [["_d]])
 map('n', 'Q', '<nop>')
 map('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 map('n', '<leader>f', vim.lsp.buf.format)
+map('n', '<leader>ef', '<cmd>EslintFixAll<CR>', { desc = '[E]slint [F]ix All' })
 
 map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map('n', '<leader>hh', '<cmd>cnext<CR>zz', { desc = 'Go to next quickfix item' })
