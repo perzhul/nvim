@@ -74,4 +74,5 @@ return {
       require('lsp_signature').setup(opts)
     end,
   },
+  'workspace-diagnostics.nvim',
 }
