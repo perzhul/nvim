@@ -83,6 +83,7 @@ return {
         gopls = {},
         pyright = {},
         rust_analyzer = {},
+        cssls = {},
         tsserver = {
           commands = {
             OrganizeImports = {
@@ -94,8 +95,9 @@ return {
             require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
           end,
         },
-        stylelint = {},
+        volar = {},
         yamlls = {},
+        stylelint = {},
         csharp_ls = {},
         markdown_oxide = {},
         lua_ls = {
