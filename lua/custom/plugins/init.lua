@@ -74,5 +74,9 @@ return {
       require('lsp_signature').setup(opts)
     end,
   },
+  {
+    'saecki/live-rename.nvim',
+    config = function() end,
+  },
   'workspace-diagnostics.nvim',
 }

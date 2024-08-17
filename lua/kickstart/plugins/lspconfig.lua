@@ -28,7 +28,7 @@ return {
           --  Similar to document symbols, except searches over your entire project.
           map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          -- map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -92,6 +92,16 @@ return {
             },
           },
           on_attach = function(client, bufnr)
+            local live_rename = require 'live-rename'
+            vim.keymap.set(
+              'n',
+              '<leader>r',
+              live_rename.map {
+                insert = true,
+              },
+              { desc = 'LSP rename' }
+            )
+
             require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
           end,
         },
