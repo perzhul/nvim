@@ -96,4 +96,9 @@ map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
 map('n', '<leader>gh', '<cmd>Telescope git_file_history<CR>', { desc = 'Open git file history' })
 map('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
+map('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' }) -- open new tab
+map('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' }) -- close current tab
+map('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' }) --  go to next tab
+map('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' }) --  go to previous tab
+map('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) --  move current buffer to new tab
 -- vim: ts=2 sts=2 sw=2 et
