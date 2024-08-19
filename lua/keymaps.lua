@@ -8,7 +8,7 @@ local map = vim.keymap.set
 map('n', '<leader>w', '<cmd>update<cr>', { desc = 'save buffer' })
 
 vim.g.mapleader = ' '
-map('n', '<leader>pv', vim.cmd.Ex)
+-- map('n', '<leader>pv', vim.cmd.Ex)
 
 map('n', '<leader>-', ':sp<CR><C-w>j', silent_noremap)
 map('n', '<leader>_', ':vsp<CR><C-w>l', silent_noremap)
@@ -94,4 +94,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
 map('n', '<leader>gh', '<cmd>Telescope git_file_history<CR>', { desc = 'Open git file history' })
+map('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
 -- vim: ts=2 sts=2 sw=2 et
