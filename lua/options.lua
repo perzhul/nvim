@@ -2,6 +2,7 @@
 -- See `:help vim.opt`
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
+vim.wo.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
