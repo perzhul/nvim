@@ -1,18 +1,11 @@
 -- [[ Basic Keymaps ]]
 --  See `:help map()`
 
-local silent_noremap = { silent = true, noremap = true }
+vim.g.mapleader = ' '
 
 local map = vim.keymap.set
 
-map('n', '<leader>w', '<cmd>update<cr>', { desc = 'save buffer' })
-
-vim.g.mapleader = ' '
--- map('n', '<leader>pv', vim.cmd.Ex)
-
-map('n', '<leader>-', ':sp<CR><C-w>j', silent_noremap)
-map('n', '<leader>_', ':vsp<CR><C-w>l', silent_noremap)
-
+-- Remove ArrowKeys
 map('n', '<Up>', '<nop>')
 map('n', '<Down>', '<nop>')
 map('n', '<Left>', '<nop>')
@@ -27,13 +20,10 @@ map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
--- greatest remap ever
+-- ThePrimeagen's Remaps
 map('x', '<leader>p', [["_dP]])
-
--- next greatest remap ever : asbjornHaland
 map({ 'n', 'v' }, '<leader>y', [["+y]])
 map('n', '<leader>Y', [["+Y]])
-
 map({ 'n', 'v' }, '<leader>d', [["_d]])
 
 map('n', 'Q', '<nop>')
@@ -51,11 +41,9 @@ map('n', '<leader>xx', '<cmd>!chmod +x %<CR>', { silent = true })
 
 map('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>')
 
-vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
+map('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprev<CR>', { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+map('n', '<S-Tab>', ':bprev<CR>', { noremap = true, silent = true })
 map('n', '<leader><leader>', function()
   vim.cmd 'so'
 end)
@@ -70,19 +58,16 @@ map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic messa
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-
-map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
+
+map('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+map('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' })
+map('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' })
+map('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' })
+map('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })
+map('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -92,13 +77,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
-map('n', '<leader>gh', '<cmd>Telescope git_file_history<CR>', { desc = 'Open git file history' })
-map('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-
-map('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' }) -- open new tab
-map('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' }) -- close current tab
-map('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' }) --  go to next tab
-map('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' }) --  go to previous tab
-map('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' }) --  move current buffer to new tab
 -- vim: ts=2 sts=2 sw=2 et
