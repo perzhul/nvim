@@ -28,7 +28,7 @@ return {
         typescript = { 'prettierd', 'prettier' },
         typescriptreact = { 'prettierd', 'prettier' },
         javascriptreact = { 'prettierd', 'prettier' },
-        json = { 'prettierd', 'prettier' },
+        json = { 'prettierd' },
         markdown = { 'mdformat' },
         yaml = { 'prettierd', 'prettier' },
         css = { 'prettierd', 'prettier' },
