@@ -99,7 +99,7 @@ return {
               'n',
               '<leader>r',
               live_rename.map {
-                insert = true,
+                insert = false,
               },
               { desc = 'LSP rename' }
             )
