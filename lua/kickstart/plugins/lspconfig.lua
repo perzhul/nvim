@@ -86,6 +86,7 @@ return {
         pyright = {},
         rust_analyzer = {},
         cssls = {},
+        taplo = {},
         tsserver = {
           commands = {
             OrganizeImports = {
