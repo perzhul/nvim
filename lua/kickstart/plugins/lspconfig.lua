@@ -87,6 +87,8 @@ return {
         rust_analyzer = {},
         cssls = {},
         taplo = {},
+        astro = {},
+        nginx_language_server = {},
         tsserver = {
           commands = {
             OrganizeImports = {
