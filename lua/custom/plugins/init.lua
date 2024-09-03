@@ -13,4 +13,10 @@ return {
       vim.keymap.set('n', '\\', vim.cmd.UndotreeToggle)
     end,
   },
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end,
+  },
 }
