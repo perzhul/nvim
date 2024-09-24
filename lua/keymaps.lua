@@ -1,6 +1,3 @@
--- [[ Basic Keymaps ]]
---  See `:help map()`
-
 vim.g.mapleader = ' '
 
 local map = vim.keymap.set
@@ -10,6 +7,17 @@ map('n', '<Up>', '<nop>')
 map('n', '<Down>', '<nop>')
 map('n', '<Left>', '<nop>')
 map('n', '<Right>', '<nop>')
+
+map('n', 's', '"_d"')
+-- Move between windows with gw
+map('n', 'gwh', '<C-w>h')
+map('n', 'gwj', '<C-w>j')
+map('n', 'gwk', '<C-w>k')
+map('n', 'gwl', '<C-w>l')
+
+map('i', 'jk', '<Esc>')
+-- Repeat the last macro
+map('n', 'Q', '@@')
 
 map('v', 'J', ":m '>+1<CR>gv=gv")
 map('v', 'K', ":m '<-2<CR>gv=gv")
@@ -32,21 +40,10 @@ map('n', '<leader>f', vim.lsp.buf.format)
 map('n', '<leader>ef', '<cmd>EslintFixAll<CR>', { desc = '[E]slint [F]ix All' })
 
 map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-map('n', '<leader>hh', '<cmd>cnext<CR>zz', { desc = 'Go to next quickfix item' })
-map('n', '<leader>;', '<cmd>cprev<CR>zz', { desc = 'Go to previous quickfix item' })
-map('n', '<leader>cc', '<cmd>cclose<CR>', { desc = 'Close quickfix list' })
-
-map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-map('n', '<leader>xx', '<cmd>!chmod +x %<CR>', { silent = true })
-
 map('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>')
 
 map('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
-
 map('n', '<S-Tab>', ':bprev<CR>', { noremap = true, silent = true })
-map('n', '<leader><leader>', function()
-  vim.cmd 'so'
-end)
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -77,4 +74,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- vim: ts=2 sts=2 sw=2 et
+map('n', '<leader>ot', '<cmd>ToggleTerm<CR>', { desc = '[O]pen [T]erminal' })
+map('t', '<esc>', [[<C-\><C-n>]])
+map('t', 'jk', [[<C-\><C-n>]])
