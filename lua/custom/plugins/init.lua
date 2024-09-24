@@ -1,12 +1,10 @@
 return {
-  { 'akinsho/git-conflict.nvim', version = '*', config = true },
   'artemave/workspace-diagnostics.nvim',
-  'workspace-diagnostics.nvim',
-  'eandrju/cellular-automaton.nvim',
-  'ThePrimeagen/vim-be-good',
   'saecki/live-rename.nvim',
   'folke/drop.nvim',
-  -- 'github/copilot.vim',
+  'xiyaowong/transparent.nvim',
+  { 'stevearc/dressing.nvim', opts = {} },
+  { 'akinsho/git-conflict.nvim', version = '*', config = true },
   {
     'mbbill/undotree',
     config = function()
@@ -19,4 +17,17 @@ return {
       require('colorizer').setup()
     end,
   },
+  {
+    'roobert/tailwindcss-colorizer-cmp.nvim',
+    -- optionally, override the default options:
+    config = function()
+      require('tailwindcss-colorizer-cmp').setup {
+        color_square_width = 2,
+      }
+      require('cmp').config.formatting = {
+        format = require('tailwindcss-colorizer-cmp').formatter,
+      }
+    end,
+  },
+  { 'akinsho/toggleterm.nvim', version = '*', config = true },
 }
