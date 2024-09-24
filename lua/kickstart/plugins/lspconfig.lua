@@ -89,7 +89,8 @@ return {
         taplo = {},
         astro = {},
         nginx_language_server = {},
-        tsserver = {
+        tailwindcss = {},
+        ts_ls = {
           commands = {
             OrganizeImports = {
               organize_imports,
@@ -126,12 +127,6 @@ return {
         },
       }
 
-      require('lspconfig').tsserver.setup {
-        on_attach = function(client, bufnr)
-          require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
-        end,
-      }
-
       require('mason').setup()
 
       local ensure_installed = vim.tbl_keys(servers or {})
@@ -146,7 +141,7 @@ return {
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
+            -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
