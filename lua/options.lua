@@ -2,6 +2,9 @@
 -- See `:help vim.opt`
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
+-- Theme
+vim.cmd [[colorscheme quiet]]
+
 vim.wo.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
@@ -43,5 +46,11 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+vim.opt.termguicolors = true
+
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.bo.softtabstop = 4
 
 -- vim: ts=2 sts=2 sw=2 et
