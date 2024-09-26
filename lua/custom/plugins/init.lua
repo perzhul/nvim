@@ -26,4 +26,10 @@ return {
     end,
   },
   { 'akinsho/toggleterm.nvim', version = '*', config = true },
+  {
+    'huyvohcmc/atlas.vim',
+    config = function()
+      vim.cmd [[colorscheme atlas]]
+    end,
+  },
 }
