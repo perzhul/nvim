@@ -98,16 +98,6 @@ return {
             },
           },
           on_attach = function(client, bufnr)
-            local live_rename = require 'live-rename'
-            vim.keymap.set(
-              'n',
-              '<leader>r',
-              live_rename.map {
-                insert = false,
-              },
-              { desc = 'LSP rename' }
-            )
-
             require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
           end,
         },

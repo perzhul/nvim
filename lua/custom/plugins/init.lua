@@ -1,6 +1,12 @@
 return {
   'artemave/workspace-diagnostics.nvim',
-  'saecki/live-rename.nvim',
+  {
+    'saecki/live-rename.nvim',
+    config = function()
+      local live_rename = require 'live-rename'
+      vim.keymap.set('n', '<leader>r', live_rename.map { insert = false }, { desc = 'LSP rename' })
+    end,
+  },
   { 'akinsho/git-conflict.nvim', version = '*', config = true },
   {
     'mbbill/undotree',
