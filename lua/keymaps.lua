@@ -74,6 +74,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-map('n', '<leader>ot', '<cmd>ToggleTerm<CR>', { desc = '[O]pen [T]erminal' })
+map('n', '<leader>ot', '<cmd>ToggleTerm size=8<CR>', { desc = '[O]pen [T]erminal' })
 map('t', '<esc>', [[<C-\><C-n>]])
 map('t', 'jk', [[<C-\><C-n>]])
