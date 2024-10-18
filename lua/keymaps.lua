@@ -57,23 +57,11 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
+-- ts only
+-- map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
 
 map('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-map('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' })
-map('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' })
-map('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' })
-map('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })
-map('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
-map('n', '<leader>ot', '<cmd>ToggleTerm size=8<CR>', { desc = '[O]pen [T]erminal' })
+-- terminal escape keybinds
 map('t', '<esc>', [[<C-\><C-n>]])
 map('t', 'jk', [[<C-\><C-n>]])

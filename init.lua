@@ -10,3 +10,7 @@ require 'keymaps'
 require 'lazy-bootstrap'
 
 require 'lazy-plugins'
+
+require 'autocmd'
+
+require 'colorscheme'
