@@ -1,9 +1,6 @@
--- [[ Setting options ]]
--- See `:help vim.opt`
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
 vim.wo.number = true
-vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
 vim.opt.clipboard = 'unnamedplus'
@@ -11,13 +8,29 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- primagen opts
+vim.opt.guicursor = ''
+
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.bo.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
 
--- Keep signcolumn on by default
+vim.opt.wrap = false
+
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+
+vim.opt.scrolloff = 8
+vim.opt.colorcolumn = '80'
+vim.opt.updatetime = 50
+
 vim.opt.signcolumn = 'yes'
-
--- Decrease update time
-vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
@@ -34,13 +47,8 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
 
 vim.opt.termguicolors = true
-
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.bo.softtabstop = 4
 
 -- ===========================
 -- Performance and UI Optimizations
@@ -53,13 +61,6 @@ vim.opt.lazyredraw = true
 -- Enable filetype detection, plugins, and indentation rules
 vim.cmd 'filetype plugin indent on'
 -- This command enables filetype-specific plugins and indentation behavior.
-
--- Improve search navigation
-vim.opt.hlsearch = true
--- Highlight all matches of the search pattern.
-
-vim.opt.incsearch = true
--- Show search matches as you type (incremental search).
 
 -- Automatically save files when switching buffers or windows
 vim.opt.autowrite = true

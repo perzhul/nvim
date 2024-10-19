@@ -30,12 +30,9 @@ map('n', 'N', 'Nzzzv')
 
 -- ThePrimeagen's Remaps
 map('x', '<leader>p', [["_dP]])
-map({ 'n', 'v' }, '<leader>y', [["+y]])
-map('n', '<leader>Y', [["+Y]])
 map({ 'n', 'v' }, '<leader>d', [["_d]])
 
 map('n', 'Q', '<nop>')
-map('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 map('n', '<leader>f', vim.lsp.buf.format)
 map('n', '<leader>ef', '<cmd>EslintFixAll<CR>', { desc = '[E]slint [F]ix All' })
 
