@@ -1,5 +1,23 @@
 return {
   {
+    'wildfunctions/myeyeshurt',
+    opts = {},
+    keys = {
+      {
+        '<leader>ms',
+        function()
+          require('myeyeshurt').start()
+        end,
+      },
+      {
+        '<leader>mx',
+        function()
+          require('myeyeshurt').stop()
+        end,
+      },
+    },
+  },
+  {
     'andrew-george/telescope-themes',
     config = function()
       require('telescope').load_extension 'themes'
