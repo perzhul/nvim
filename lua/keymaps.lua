@@ -2,11 +2,11 @@ vim.g.mapleader = ' '
 
 local map = vim.keymap.set
 
--- Remove ArrowKeys
-map('n', '<Up>', '<nop>')
-map('n', '<Down>', '<nop>')
-map('n', '<Left>', '<nop>')
-map('n', '<Right>', '<nop>')
+-- -- Remove ArrowKeys
+-- map('n', '<Up>', '<nop>')
+-- map('n', '<Down>', '<nop>')
+-- map('n', '<Left>', '<nop>')
+-- map('n', '<Right>', '<nop>')
 
 map('n', 's', '"_d"')
 -- Move between windows with gw

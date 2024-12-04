@@ -23,6 +23,9 @@ return {
       end,
       formatters_by_ft = {
         go = { 'goimports', 'gofumpt' },
+        html = { 'prettierd', 'prettier' },
+        gotmpl = { 'gofumpt' },
+        gotexttmpl = { 'gofumpt' },
         lua = { 'stylua' },
         python = { 'isort', 'black' },
         javascript = { 'prettierd', 'prettier' },
