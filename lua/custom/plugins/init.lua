@@ -1,4 +1,8 @@
 return {
+  { 'nyoom-engineering/oxocarbon.nvim' },
+  { 'folke/tokyonight.nvim' },
+  { 'EdenEast/nightfox.nvim' },
+  { 'projekt0n/github-nvim-theme' },
   { 'dmmulroy/ts-error-translator.nvim' },
   { 'artemave/workspace-diagnostics.nvim', lazy = true },
   {
@@ -10,6 +14,7 @@ return {
   },
   { 'akinsho/git-conflict.nvim', version = '*', opts = {} },
   { 'norcalli/nvim-colorizer.lua', lazy = true, opts = {} },
+  'tpope/vim-fugitive',
   {
     'roobert/tailwindcss-colorizer-cmp.nvim',
     lazy = true,
@@ -73,16 +78,7 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
-    lazy = true,
-    config = function()
-      require('nvim-ts-autotag').setup {
-        opts = {
-          enable_close = true,
-          enable_rename = true,
-          enable_close_on_slash = false,
-        },
-      }
-    end,
+    lazy = false,
   },
   -- nvim v0.8.0
   {
