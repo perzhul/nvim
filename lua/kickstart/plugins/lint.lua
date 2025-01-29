@@ -8,6 +8,10 @@ return {
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         go = { 'golangcilint' },
+        typescriptreact = { 'eslint' },
+        javascriptreact = { 'eslint' },
+        javascript = { 'eslint' },
+        typescript = { 'eslint' },
       }
 
       -- Create autocommand which carries out the actual linting

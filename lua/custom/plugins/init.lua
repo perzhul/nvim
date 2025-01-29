@@ -1,14 +1,15 @@
 return {
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   { 'rose-pine/neovim', name = 'rose-pine', opts = {
     styles = {
       transparency = true,
     },
   } },
-  { 'nyoom-engineering/oxocarbon.nvim' },
-  { 'folke/tokyonight.nvim' },
-  { 'EdenEast/nightfox.nvim' },
-  { 'projekt0n/github-nvim-theme' },
-  { 'dmmulroy/ts-error-translator.nvim' },
+  'nyoom-engineering/oxocarbon.nvim',
+  'folke/tokyonight.nvim',
+  'EdenEast/nightfox.nvim',
+  'projekt0n/github-nvim-theme',
+  'dmmulroy/ts-error-translator.nvim',
   { 'artemave/workspace-diagnostics.nvim', lazy = true },
   {
     'saecki/live-rename.nvim',
@@ -67,15 +68,6 @@ return {
     opts = {},
   },
   {
-    'stevearc/overseer.nvim',
-    opts = {},
-    keys = {
-      { '<leader>or', '<cmd>OverseerRun<CR>', { desc = '[O]verseer [R]un' } },
-      { '<leader>ot', '<cmd>OverseerToggle<CR>', { desc = '[O]verseer [T]oggle' } },
-      { '<leader>orl', '<cmd>OverseerRestartLast<CR>', { desc = '[O]verseer [R]estart [L]ast' } },
-    },
-  },
-  {
     'kylechui/nvim-surround',
     event = { 'BufReadPre', 'BufNewFile' },
     version = '*', -- Use for stability; omit to use `main` branch for the latest features
@@ -83,6 +75,14 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
-    lazy = false,
+    config = function()
+      require('nvim-ts-autotag').setup {
+        opts = {
+          enable_close = true,
+          enable_rename = true,
+          enable_close_on_slash = true,
+        },
+      }
+    end,
   },
 }
