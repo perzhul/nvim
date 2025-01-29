@@ -1,15 +1,30 @@
 return {
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  'nyoom-engineering/oxocarbon.nvim',
+  'folke/tokyonight.nvim',
+  'EdenEast/nightfox.nvim',
+  'projekt0n/github-nvim-theme',
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
+    config = function()
+      require('todo-comments').setup()
+      vim.keymap.set('n', ']t', function()
+        require('todo-comments').jump_next()
+      end, { desc = 'Next todo comment' })
+
+      vim.keymap.set('n', '[t', function()
+        require('todo-comments').jump_prev()
+      end, { desc = 'Previous todo comment' })
+    end,
+  },
   { 'rose-pine/neovim', name = 'rose-pine', opts = {
     styles = {
       transparency = true,
     },
   } },
-  'nyoom-engineering/oxocarbon.nvim',
-  'folke/tokyonight.nvim',
-  'EdenEast/nightfox.nvim',
-  'projekt0n/github-nvim-theme',
-  'dmmulroy/ts-error-translator.nvim',
+  { 'dmmulroy/ts-error-translator.nvim', opts = {} },
   { 'artemave/workspace-diagnostics.nvim', lazy = true },
   {
     'saecki/live-rename.nvim',
@@ -32,16 +47,6 @@ return {
     end,
   },
   {
-    'akinsho/toggleterm.nvim',
-    lazy = true,
-    version = '*',
-    opts = {},
-    keys = {
-      { '<leader>tot', '<cmd>ToggleTerm size=8<CR>', desc = '[TO]ggle [T]erminal' },
-    },
-  },
-  { 'folke/twilight.nvim', lazy = true, opts = {} },
-  {
     'ray-x/lsp_signature.nvim',
     event = 'InsertEnter',
     opts = {
@@ -49,22 +54,8 @@ return {
     },
   },
   {
-    'sindrets/diffview.nvim',
-    opts = {},
-    keys = {
-      { '<leader>do', '<cmd>DiffviewOpen<CR>', desc = '[D]iff [O]pen' },
-      { '<leader>dc', '<cmd>DiffviewClose<CR>', desc = '[D]iff [C]lose' },
-    },
-  },
-  {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {},
-  },
-  {
-    'MeanderingProgrammer/markdown.nvim',
-    name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
     opts = {},
   },
   {
