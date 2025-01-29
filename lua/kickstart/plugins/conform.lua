@@ -1,3 +1,5 @@
+---@module "conform"
+---@type conform.setupOpts
 return {
   { -- Autoformat
     'stevearc/conform.nvim',

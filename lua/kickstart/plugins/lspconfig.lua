@@ -130,7 +130,12 @@ return {
         },
         pyright = {},
         rust_analyzer = {},
-        cssls = {},
+        cssls = {
+          filetypes = { 'css', 'scss', 'less', 'typescriptreact', 'javascriptreact' },
+        },
+        html = {
+          filetypes = { 'html', 'typescriptreact', 'javascriptreact' },
+        },
         taplo = {},
         astro = {},
         nginx_language_server = {},
