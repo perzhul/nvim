@@ -1,8 +1,51 @@
 return {
+  { 'norcalli/nvim-colorizer.lua', opts = {} },
+  {
+    'sindrets/diffview.nvim',
+    config = function()
+      vim.keymap.set('n', ',hh', '<cmd>DiffviewFileHistory<cr>', { desc = 'Repo history' }) -- trace history of repo
+      vim.keymap.set('n', ',hf', '<cmd>DiffviewFileHistory --follow %<cr>', { desc = 'File history' }) -- trace history of current file
+      vim.keymap.set('v', ',hl', "<Esc><Cmd>'<,'>DiffviewFileHistory --follow<CR>", { desc = 'Range history' }) -- trace history under visual selection
+      vim.keymap.set('n', ',hl', '<Cmd>.DiffviewFileHistory --follow<CR>', { desc = 'Line history' }) -- trace history of single line
+
+      -- diff against HEAD
+      vim.keymap.set('n', ',d', '<cmd>DiffviewOpen<cr>', { desc = 'Repo diff' })
+      -- Highlight changed words.
+      vim.keymap.set('n', ',vw', require('gitsigns').toggle_word_diff, { desc = 'Toggle word diff' })
+      -- Highlight added lines.
+      vim.keymap.set('n', ',vL', require('gitsigns').toggle_linehl, { desc = 'Toggle line highlight' })
+      -- Highlight removed lines.
+      vim.keymap.set('n', ',vv', require('gitsigns').preview_hunk_inline, { desc = 'Toggle deleted (all)' })
+      vim.keymap.set('n', ',vh', require('gitsigns').preview_hunk, { desc = 'Preview hunk' })
+    end,
+  },
+  'slugbyte/lackluster.nvim',
+  'tiagovla/tokyodark.nvim',
+  'polirritmico/monokai-nightasty.nvim',
+  'bluz71/vim-moonfly-colors',
+  'bluz71/vim-nightfly-colors',
+  'Tsuzat/NeoSolarized.nvim',
+  'jacoborus/tender.vim',
+  'AndrewRadev/dealwithit.vim',
+  'catppuccin/nvim',
+  'ficcdaf/ashen.nvim',
+  'craftzdog/solarized-osaka.nvim',
+  'morhetz/gruvbox',
+  'dracula/vim',
+  'sainnhe/everforest',
+  'NLKNguyen/papercolor-theme',
   'nyoom-engineering/oxocarbon.nvim',
+  'metalelf0/jellybeans-nvim',
+  'Shatur/neovim-ayu',
   'folke/tokyonight.nvim',
   'EdenEast/nightfox.nvim',
   'projekt0n/github-nvim-theme',
+  {
+    'folke/ts-comments.nvim',
+    opts = {},
+    event = 'VeryLazy',
+    enabled = vim.fn.has 'nvim-0.10.0' == 1,
+  },
   {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
