@@ -1,4 +1,10 @@
 return {
+  { 'NStefan002/donut.nvim', opts = {} },
+  {
+    'drewxs/ash.nvim',
+    lazy = false,
+    priority = 1000,
+  },
   { 'norcalli/nvim-colorizer.lua', opts = {} },
   {
     'sindrets/diffview.nvim',
@@ -19,6 +25,8 @@ return {
       vim.keymap.set('n', ',vh', require('gitsigns').preview_hunk, { desc = 'Preview hunk' })
     end,
   },
+
+  { 'letieu/hacker.nvim', opts = {} },
   'slugbyte/lackluster.nvim',
   'tiagovla/tokyodark.nvim',
   'polirritmico/monokai-nightasty.nvim',
