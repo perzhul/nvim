@@ -2,11 +2,11 @@ vim.g.mapleader = ' '
 
 local map = vim.keymap.set
 
--- -- Remove ArrowKeys
--- map('n', '<Up>', '<nop>')
--- map('n', '<Down>', '<nop>')
--- map('n', '<Left>', '<nop>')
--- map('n', '<Right>', '<nop>')
+-- Remove ArrowKeys
+map('n', '<Up>', '<nop>')
+map('n', '<Down>', '<nop>')
+map('n', '<Left>', '<nop>')
+map('n', '<Right>', '<nop>')
 
 map('n', 's', '"_d"')
 -- Move between windows with gw
@@ -62,3 +62,6 @@ map('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- terminal escape keybinds
 map('t', '<esc>', [[<C-\><C-n>]])
 map('t', 'jk', [[<C-\><C-n>]])
+
+map('n', '<leader>h', '<cmd>cnext<CR>zz', { desc = 'Forward qflist' })
+map('n', '<leader>;', '<cmd>cprev<CR>zz', { desc = 'Backward qflist' })

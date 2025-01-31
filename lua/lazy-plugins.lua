@@ -1,15 +1,7 @@
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  {
-    'folke/ts-comments.nvim',
-    opts = {},
-    event = 'VeryLazy',
-    enabled = vim.fn.has 'nvim-0.10.0' == 1,
-  },
 
   require 'kickstart/plugins/gitsigns',
-
-  require 'kickstart/plugins/which-key',
 
   require 'kickstart/plugins/telescope',
 
@@ -19,15 +11,11 @@ require('lazy').setup({
 
   require 'kickstart/plugins/cmp',
 
-  require 'kickstart/plugins/todo-comments',
-
-  require 'kickstart/plugins/mini',
-
   require 'kickstart/plugins/treesitter',
 
-  require 'kickstart.plugins.debug',
-
   require 'kickstart.plugins.lint',
+
+  require 'kickstart.plugins.mini',
 
   require 'kickstart.plugins.autopairs',
 

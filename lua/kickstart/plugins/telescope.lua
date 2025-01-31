@@ -22,26 +22,18 @@ return {
 
       local actions = require 'telescope.actions'
 
-      local trouble = require 'trouble'
-      local trouble_telescope = require 'trouble.sources.telescope'
-
-      local transform_mod = require('telescope.actions.mt').transform_mod
-
-      local custom_actions = transform_mod {
-        open_trouble_qflist = function()
-          trouble.toggle 'quickfix'
-        end,
-      }
-
       require('telescope').setup {
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
+        },
         defaults = {
           path_display = { 'smart' },
           mappings = {
             i = {
               ['<C-k>'] = actions.move_selection_previous, -- move to prev result
               ['<C-j>'] = actions.move_selection_next, -- move to next result
-              ['<C-q>'] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
-              ['<C-t>'] = trouble_telescope.open,
             },
           },
         },
@@ -90,7 +82,10 @@ return {
       map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       map('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       map('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      map('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      map('n', '<leader>sc', builtin.colorscheme)
+      map('n', '<leader>sd', function()
+        require('telescope.builtin').diagnostics { severity_bound = 0 }
+      end, { desc = '[S]earch [D]iagnostics' })
       map('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       map('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       -- map('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
