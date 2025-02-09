@@ -12,6 +12,8 @@ return {
         javascriptreact = { 'eslint_d' },
         javascript = { 'eslint_d' },
         typescript = { 'eslint_d' },
+        terraform = { 'tflint' },
+        tf = { 'tflint' },
       }
 
       -- Create autocommand which carries out the actual linting
