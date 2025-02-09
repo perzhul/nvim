@@ -61,19 +61,9 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      local function organize_imports()
-        local params = {
-          command = '_typescript.organizeImports',
-          arguments = { vim.api.nvim_buf_get_name(0) },
-          title = '',
-        }
-        vim.lsp.buf.execute_command(params)
-      end
-
-      -- `:help lspconfig-all` for a list of all the pre-configured LSPs
       local servers = {
         eslint = {
-          on_attach = function(client, bufnr)
+          on_attach = function(_, bufnr)
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = bufnr,
               command = 'EslintFixAll',
@@ -124,6 +114,7 @@ return {
           },
           usePlaceholders = true,
           completeUnimported = true,
+          vulncheck = 'Imports',
           staticcheck = true,
           directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
           semanticTokens = true,
@@ -133,20 +124,22 @@ return {
         cssls = {},
         html = {},
         taplo = {},
+
         astro = {},
         nginx_language_server = {},
         tailwindcss = {},
-        ts_ls = {
-          commands = {
-            OrganizeImports = {
-              organize_imports,
-              description = 'Organize Imports',
-            },
-          },
-          on_attach = function(client, bufnr)
-            require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
+        terraformls = {
+          on_attach = function()
+            vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+              pattern = { '*.tf', '*.tfvars' },
+              callback = function()
+                vim.lsp.buf.format()
+              end,
+            })
           end,
         },
+        dockerls = {},
+        docker_compose_language_service = {},
         volar = {},
         yamlls = {},
         stylelint = {},

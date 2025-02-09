@@ -1,6 +1,24 @@
 return {
   { 'NStefan002/donut.nvim', opts = {} },
   {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {
+      settings = {
+        code_lens = 'all',
+        tsserver_plugins = {
+          '@styled/typescript-styled-plugin',
+        },
+      },
+      keys = {
+        { '<leader>or', '<cmd>TSToolsOrganizeImports<cr>' },
+        { '<leader>fa', '<cmd>TSToolsFixAll<cr>' },
+        { '<leader>rf', '<cmd>TSToolsRenameFile<cr>' },
+        { '<leader>gfr', '<cmd>TSToolsFileReferences<cr>' },
+      },
+    },
+  },
+  {
     'drewxs/ash.nvim',
     lazy = false,
     priority = 1000,
@@ -52,7 +70,7 @@ return {
   },
   { 'rose-pine/neovim', name = 'rose-pine', opts = {
     styles = {
-      transparency = true,
+      transparency = false,
     },
   } },
   { 'dmmulroy/ts-error-translator.nvim', opts = {} },
