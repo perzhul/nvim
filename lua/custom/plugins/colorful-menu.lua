@@ -9,9 +9,6 @@ return {
           arguments_hl = '@comment',
         },
         gopls = {},
-        ts_ls = {
-          extra_info_hl = '@comment',
-        },
         -- If true, try to highlight "not supported" languages.
         fallback = true,
       },

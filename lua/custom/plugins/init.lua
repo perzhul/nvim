@@ -1,28 +1,22 @@
 return {
-  { 'NStefan002/donut.nvim', opts = {} },
-  {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {
-      settings = {
-        code_lens = 'all',
-        tsserver_plugins = {
-          '@styled/typescript-styled-plugin',
-        },
-      },
-      keys = {
-        { '<leader>or', '<cmd>TSToolsOrganizeImports<cr>' },
-        { '<leader>fa', '<cmd>TSToolsFixAll<cr>' },
-        { '<leader>rf', '<cmd>TSToolsRenameFile<cr>' },
-        { '<leader>gfr', '<cmd>TSToolsFileReferences<cr>' },
-      },
-    },
-  },
   {
     'drewxs/ash.nvim',
     lazy = false,
     priority = 1000,
   },
+  'Alligator/accent.vim',
+  'LuRsT/austere.vim',
+  'aditya-azad/candle-grey',
+  'fxn/vim-monochrome',
+  'rose-pine/neovim',
+  'huyvohcmc/atlas.vim',
+  'owickstrom/vim-colors-paramount',
+  'ribru17/bamboo.nvim',
+  { 'catppuccin/nvim', name = 'catppuccin' },
+  'dgox16/oldworld.nvim',
+  'rebelot/kanagawa.nvim',
+  'AlexvZyl/nordic.nvim',
+  'cdmill/neomodern.nvim',
   { 'norcalli/nvim-colorizer.lua', opts = {} },
   { 'letieu/hacker.nvim', opts = {} },
   'slugbyte/lackluster.nvim',
@@ -57,20 +51,10 @@ return {
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
-    config = function()
-      require('todo-comments').setup()
-      vim.keymap.set('n', ']t', function()
-        require('todo-comments').jump_next()
-      end, { desc = 'Next todo comment' })
-
-      vim.keymap.set('n', '[t', function()
-        require('todo-comments').jump_prev()
-      end, { desc = 'Previous todo comment' })
-    end,
   },
   { 'rose-pine/neovim', name = 'rose-pine', opts = {
     styles = {
-      transparency = false,
+      transparency = true,
     },
   } },
   { 'dmmulroy/ts-error-translator.nvim', opts = {} },
@@ -85,16 +69,6 @@ return {
   { 'akinsho/git-conflict.nvim', version = '*', opts = {} },
   { 'norcalli/nvim-colorizer.lua', lazy = true, opts = {} },
   'tpope/vim-fugitive',
-  {
-    'roobert/tailwindcss-colorizer-cmp.nvim',
-    lazy = true,
-    opts = { color_square_width = 2 },
-    config = function()
-      require('cmp').config.formatting = {
-        format = require('tailwindcss-colorizer-cmp').formatter,
-      }
-    end,
-  },
   {
     'ray-x/lsp_signature.nvim',
     event = 'InsertEnter',
