@@ -38,14 +38,6 @@ return {
       desc = 'Rename File',
     },
     {
-      '<leader>gB',
-      function()
-        Snacks.gitbrowse()
-      end,
-      desc = 'Git Browse',
-      mode = { 'n', 'v' },
-    },
-    {
       '<leader>gb',
       function()
         Snacks.git.blame_line()
