@@ -93,12 +93,6 @@ return {
         sqlls = {},
         sqlfmt = {},
         gopls = {
-          on_attach = function(_, bufnr)
-            require('lsp_signature').on_attach(function()
-              require('lsp_signature').setup()
-            end, bufnr)
-          end,
-
           gofumpt = true,
           codelenses = {
             run_govulncheck = true,

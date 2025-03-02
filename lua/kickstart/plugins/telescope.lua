@@ -75,7 +75,7 @@ return {
       local builtin = require 'telescope.builtin'
       local map = vim.keymap.set
 
-      map('n', '<leader><leader>', '<cmd>Telescope smart_open theme=dropdown previewer=false<cr>', { desc = 'Find Files (Smart open)' })
+      map('n', '<leader><leader>', '<cmd>Telescope find_files<cr>', { desc = 'Find Files (Smart open)' })
       map('n', '<leader>sgh', '<cmd>Telescope git_file_history<CR>', { desc = '[S]earch [G]it [H]istory' })
       map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       map('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })

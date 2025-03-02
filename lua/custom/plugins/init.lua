@@ -1,4 +1,51 @@
 return {
+  'projekt0n/github-nvim-theme',
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('nvim-treesitter.configs').setup {
+
+        textobjects = {
+          select = {
+            enable = true,
+
+            lookahead = true,
+
+            keymaps = {
+              ['af'] = '@function.outer',
+              ['if'] = '@function.inner',
+              ['ac'] = '@class.outer',
+              ['ic'] = { query = '@class.inner', desc = 'Select inner part of a class region' },
+              ['as'] = { query = '@scope', query_group = 'locals', desc = 'Select language scope' },
+            },
+            selection_modes = {
+              ['@parameter.outer'] = 'v', -- charwise
+              ['@function.outer'] = 'V', -- linewise
+              ['@class.outer'] = '<c-v>', -- blockwise
+            },
+            include_surrounding_whitespace = true,
+          },
+        },
+      }
+    end,
+  },
+  {
+    'ray-x/go.nvim',
+    dependencies = { -- optional packages
+      'ray-x/guihua.lua',
+      'neovim/nvim-lspconfig',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('go').setup()
+    end,
+    event = { 'CmdlineEnter' },
+    ft = { 'go', 'gomod' },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
   {
     'yioneko/nvim-vtsls',
     setup = function()
@@ -20,98 +67,13 @@ return {
     end,
   },
   {
-    'drewxs/ash.nvim',
-    lazy = false,
-    priority = 1000,
-  },
-  'Alligator/accent.vim',
-  'LuRsT/austere.vim',
-  'aditya-azad/candle-grey',
-  'fxn/vim-monochrome',
-  'rose-pine/neovim',
-  'huyvohcmc/atlas.vim',
-  'owickstrom/vim-colors-paramount',
-  'ribru17/bamboo.nvim',
-  { 'catppuccin/nvim', name = 'catppuccin' },
-  'dgox16/oldworld.nvim',
-  'rebelot/kanagawa.nvim',
-  'AlexvZyl/nordic.nvim',
-  'cdmill/neomodern.nvim',
-  { 'norcalli/nvim-colorizer.lua', opts = {} },
-  { 'letieu/hacker.nvim', opts = {} },
-  'slugbyte/lackluster.nvim',
-  'tiagovla/tokyodark.nvim',
-  'polirritmico/monokai-nightasty.nvim',
-  'bluz71/vim-moonfly-colors',
-  'bluz71/vim-nightfly-colors',
-  'Tsuzat/NeoSolarized.nvim',
-  'jacoborus/tender.vim',
-  'AndrewRadev/dealwithit.vim',
-  'catppuccin/nvim',
-  'ficcdaf/ashen.nvim',
-  'craftzdog/solarized-osaka.nvim',
-  'morhetz/gruvbox',
-  'dracula/vim',
-  'sainnhe/everforest',
-  'NLKNguyen/papercolor-theme',
-  'nyoom-engineering/oxocarbon.nvim',
-  'metalelf0/jellybeans-nvim',
-  'Shatur/neovim-ayu',
-  'folke/tokyonight.nvim',
-  'EdenEast/nightfox.nvim',
-  'projekt0n/github-nvim-theme',
-  {
-    'folke/ts-comments.nvim',
-    opts = {},
-    event = 'VeryLazy',
-    enabled = vim.fn.has 'nvim-0.10.0' == 1,
-  },
-  {
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {},
-  },
-  { 'rose-pine/neovim', name = 'rose-pine', opts = {
-    styles = {
-      transparency = true,
-    },
-  } },
-  { 'dmmulroy/ts-error-translator.nvim', opts = {} },
-  { 'artemave/workspace-diagnostics.nvim', lazy = true },
-  {
     'saecki/live-rename.nvim',
     config = function()
       local live_rename = require 'live-rename'
       vim.keymap.set('n', '<leader>rn', live_rename.map { insert = false }, { desc = 'LSP rename' })
     end,
   },
-  { 'akinsho/git-conflict.nvim', version = '*', opts = {} },
-  { 'norcalli/nvim-colorizer.lua', lazy = true, opts = {} },
   'tpope/vim-fugitive',
-  {
-    'ray-x/lsp_signature.nvim',
-    event = 'InsertEnter',
-    opts = {
-      hint_prefix = '🦈',
-    },
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {
-      sections = {
-        lualine_a = {
-          {
-            'filename',
-            file_status = true, -- Displays file status (readonly status, modified status)
-            newfile_status = false, -- Display new file status (new file means no write after created)
-            path = 4,
-          },
-        },
-      },
-    },
-  },
   {
     'kylechui/nvim-surround',
     event = { 'BufReadPre', 'BufNewFile' },
