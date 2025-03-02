@@ -1,5 +1,25 @@
 return {
   {
+    'yioneko/nvim-vtsls',
+    setup = function()
+      require('vtsls').config {
+        refactor_auto_rename = true,
+        settings = {
+          typescript = {
+            inlayHints = {
+              parameterNames = { enabled = 'literals' },
+              parameterTypes = { enabled = true },
+              variableTypes = { enabled = true },
+              propertyDeclarationTypes = { enabled = true },
+              functionLikeReturnTypes = { enabled = true },
+              enumMemberValues = { enabled = true },
+            },
+          },
+        },
+      }
+    end,
+  },
+  {
     'drewxs/ash.nvim',
     lazy = false,
     priority = 1000,
@@ -79,7 +99,18 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {},
+    opts = {
+      sections = {
+        lualine_a = {
+          {
+            'filename',
+            file_status = true, -- Displays file status (readonly status, modified status)
+            newfile_status = false, -- Display new file status (new file means no write after created)
+            path = 4,
+          },
+        },
+      },
+    },
   },
   {
     'kylechui/nvim-surround',

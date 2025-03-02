@@ -33,3 +33,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     }, bufnr)
   end,
 })
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = { '*.ts', '*.tsx', '*.js', '*.jsx' },
+  callback = function()
+    vim.cmd 'VtsExec remove_unused_imports'
+  end,
+})
