@@ -1,6 +1,5 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 vim.g.have_nerd_font = true
 
 require 'options'
@@ -13,4 +12,12 @@ require 'lazy-plugins'
 
 require 'autocmd'
 
-require 'colorscheme'
+-- Colorscheme
+local hour = tonumber(os.date('%H', os.time()))
+
+if hour > 6 and hour < 21 then
+  vim.cmd [[colorscheme github_light]]
+  return
+end
+
+vim.cmd [[colorscheme github_dark_dimmed]]
