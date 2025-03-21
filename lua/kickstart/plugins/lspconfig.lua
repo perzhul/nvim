@@ -132,7 +132,7 @@ return {
         cssls = {},
         html = {},
         taplo = {},
-
+        hclfmt = {},
         astro = {},
         nginx_language_server = {},
         tailwindcss = {},
