@@ -1,5 +1,6 @@
 return {
   'projekt0n/github-nvim-theme',
+  'rose-pine/neovim',
   {
     'danielfalk/smart-open.nvim',
     branch = '0.2.x',

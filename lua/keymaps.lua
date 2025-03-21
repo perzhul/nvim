@@ -34,7 +34,7 @@ map({ 'n', 'v' }, '<leader>d', [["_d]])
 
 map('n', 'Q', '<nop>')
 map('n', '<leader>f', vim.lsp.buf.format)
-map('n', '<leader>ef', '<cmd>EslintFixAll<CR>', { desc = '[E]slint [F]ix All' })
+-- map('n', '<leader>ef', '<cmd>EslintFixAll<CR>', { desc = '[E]slint [F]ix All' })
 
 map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>')
@@ -57,11 +57,12 @@ map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- ts only
 -- map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
 
-map('n', '<leader>pv', '<CMD>Ex<CR>', { desc = 'Open parent directory' })
+-- map('n', '<leader>pv', '<CMD>Ex<CR>', { desc = 'Open parent directory' })
+map('n', '<leader>pv', '<CMD>Oil<CR>')
 
 -- terminal escape keybinds
 map('t', '<esc>', [[<C-\><C-n>]])
 map('t', 'jk', [[<C-\><C-n>]])
 
-map('n', '<leader>h', '<cmd>cnext<CR>zz', { desc = 'Forward qflist' })
-map('n', '<leader>;', '<cmd>cprev<CR>zz', { desc = 'Backward qflist' })
+map('n', '<leader>j', '<cmd>cnext<CR>zz', { desc = 'Forward qflist' })
+map('n', '<leader>k', '<cmd>cprev<CR>zz', { desc = 'Backward qflist' })

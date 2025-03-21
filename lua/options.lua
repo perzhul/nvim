@@ -15,6 +15,7 @@ vim.opt.relativenumber = true -- ...and relative numbers.
 vim.opt.cursorline = true -- Highlight the current line.
 vim.opt.signcolumn = 'yes' -- Always show the sign column.
 vim.opt.laststatus = 2 -- Always display the status line.
+vim.opt.colorcolumn = '80'
 
 -- Editing & Indentation
 vim.opt.tabstop = 4 -- Number of spaces a Tab counts for.
@@ -33,6 +34,7 @@ vim.opt.splitright = true -- New vertical splits open to the right.
 vim.opt.splitbelow = true -- New horizontal splits open below.
 vim.opt.scrolloff = 8 -- Keep some lines visible around the cursor.
 vim.opt.wrap = false -- Disable line wrapping.
+vim.opt.showmode = false
 
 -- Performance Optimizations
 vim.opt.lazyredraw = true -- Redraw only when necessary.

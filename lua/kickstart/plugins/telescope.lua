@@ -40,7 +40,7 @@ return {
         extensions = {
           smart_open = {
             cwd_only = true,
-            filename_first = false,
+            filename_first = true,
             ignore_patterns = {
               '*.temp/*',
               'index.ts',
