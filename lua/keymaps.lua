@@ -57,7 +57,6 @@ map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- ts only
 -- map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
 
--- map('n', '<leader>pv', '<CMD>Ex<CR>', { desc = 'Open parent directory' })
 map('n', '<leader>pv', '<CMD>Oil<CR>')
 
 -- terminal escape keybinds
