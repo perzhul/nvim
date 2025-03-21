@@ -1,88 +1,43 @@
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
-vim.wo.number = true
-vim.opt.mouse = 'a'
-vim.opt.showmode = false
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.breakindent = true
-vim.opt.undofile = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+-- Basic Editor Behavior
+vim.opt.mouse = 'a' -- Enable mouse support in all modes.
+vim.opt.clipboard = 'unnamedplus' -- Use the system clipboard.
+vim.opt.ignorecase = true -- Case-insensitive searching...
+vim.opt.smartcase = true -- ...unless uppercase is used.
+vim.opt.undofile = true -- Enable persistent undo.
+vim.opt.termguicolors = true -- Use true colors in the terminal.
+vim.opt.updatetime = 50 -- Faster completion and swap file updates.
 
--- primagen opts
-vim.opt.guicursor = ''
-
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.bo.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-
-vim.opt.wrap = false
-
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-
-vim.opt.scrolloff = 8
+-- Display Options
+vim.opt.number = true -- Enable absolute line numbers.
+vim.opt.relativenumber = true -- ...and relative numbers.
+vim.opt.cursorline = true -- Highlight the current line.
+vim.opt.signcolumn = 'yes' -- Always show the sign column.
+vim.opt.laststatus = 2 -- Always display the status line.
 vim.opt.colorcolumn = '80'
-vim.opt.updatetime = 50
 
-vim.opt.signcolumn = 'yes'
+-- Editing & Indentation
+vim.opt.tabstop = 4 -- Number of spaces a Tab counts for.
+vim.opt.shiftwidth = 4 -- Size of an indent.
+vim.opt.softtabstop = 4 -- Fine-tuning backspace behavior.
+vim.opt.expandtab = true -- Convert tabs to spaces.
+vim.opt.smartindent = true -- Automatically insert indents on new lines.
 
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+-- Search & Substitution
+vim.opt.hlsearch = true -- Highlight search matches.
+vim.opt.incsearch = true -- Show incremental search results.
+vim.opt.inccommand = 'split' -- Live preview for substitutions.
 
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+-- Window Behavior
+vim.opt.splitright = true -- New vertical splits open to the right.
+vim.opt.splitbelow = true -- New horizontal splits open below.
+vim.opt.scrolloff = 8 -- Keep some lines visible around the cursor.
+vim.opt.wrap = false -- Disable line wrapping.
+vim.opt.showmode = false
 
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+-- Performance Optimizations
+vim.opt.lazyredraw = true -- Redraw only when necessary.
 
--- Show which line your cursor is on
-vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-
-vim.opt.termguicolors = true
-
--- ===========================
--- Performance and UI Optimizations
--- ===========================
-
--- Faster rendering during macros or complex operations
-vim.opt.lazyredraw = true
--- This makes Vim only redraw the screen when necessary, improving performance during long operations.
-
--- Enable filetype detection, plugins, and indentation rules
-vim.cmd 'filetype plugin indent on'
--- This command enables filetype-specific plugins and indentation behavior.
-
--- Automatically save files when switching buffers or windows
-vim.opt.autowrite = true
--- Automatically write the buffer to the file when switching buffers or windows.
-
--- Shorten command-line messages
-vim.opt.shortmess:append 'c'
--- Avoid showing redundant messages for completion.
-
--- More efficient folding using syntax-based folds
-vim.opt.foldmethod = 'syntax'
--- Set syntax-based folding.
-
-vim.opt.foldlevel = 99
--- Open files with all folds open by default.
-
--- Enable persistent sessions to save state between sessions
-vim.opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize' }
--- Save the state of buffers, current directory, tab pages, and window sizes.
-
--- Customize status line
-vim.opt.laststatus = 2
--- Always show the status line.
-
--- vim: ts=2 sts=2 sw=2 et
+-- Filetype & Plugin Support
+vim.cmd 'filetype plugin indent on' -- Enable filetype detection, plugins, and indentation.

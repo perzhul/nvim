@@ -40,7 +40,7 @@ return {
         extensions = {
           smart_open = {
             cwd_only = true,
-            filename_first = false,
+            filename_first = true,
             ignore_patterns = {
               '*.temp/*',
               'index.ts',
@@ -75,11 +75,13 @@ return {
       local builtin = require 'telescope.builtin'
       local map = vim.keymap.set
 
-      map('n', '<leader><leader>', '<cmd>Telescope smart_open theme=dropdown previewer=false<cr>', { desc = 'Find Files (Smart open)' })
+      map('n', '<leader><leader>', function()
+        require('telescope').extensions.smart_open.smart_open()
+      end, { noremap = true, silent = true })
       map('n', '<leader>sgh', '<cmd>Telescope git_file_history<CR>', { desc = '[S]earch [G]it [H]istory' })
       map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       map('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      -- map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       map('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       map('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       map('n', '<leader>sc', builtin.colorscheme)
