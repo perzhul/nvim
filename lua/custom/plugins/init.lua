@@ -2,6 +2,14 @@ return {
   'projekt0n/github-nvim-theme',
   'rose-pine/neovim',
   {
+    'stevearc/oil.nvim',
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
+  },
+  {
     'danielfalk/smart-open.nvim',
     branch = '0.2.x',
     config = function()

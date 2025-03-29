@@ -2,6 +2,16 @@ vim.g.mapleader = ' '
 
 local map = vim.keymap.set
 
+local browse = function()
+  if vim.fn.exists ':Oil' then
+    vim.cmd 'Oil'
+  else
+    vim.cmd 'Ex'
+  end
+end
+
+map('n', '<leader>pv', browse)
+
 -- Remove ArrowKeys
 map('n', '<Up>', '<nop>')
 map('n', '<Down>', '<nop>')
@@ -53,11 +63,6 @@ map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rr
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- ts only
--- map('n', '<leader>o', '<cmd>OrganizeImports<CR>', { desc = 'Organize Imports' })
-
-map('n', '<leader>pv', '<CMD>Oil<CR>')
 
 -- terminal escape keybinds
 map('t', '<esc>', [[<C-\><C-n>]])
