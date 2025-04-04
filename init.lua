@@ -20,4 +20,4 @@ require 'autocmd'
 --   return
 -- end
 
-vim.cmd [[colorscheme rose-pine-main]]
+vim.cmd [[colorscheme kanagawa]]
