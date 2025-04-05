@@ -20,4 +20,5 @@ require 'autocmd'
 --   return
 -- end
 
-vim.cmd [[colorscheme kanagawa]]
+vim.cmd [[colorscheme zenbones]]
+vim.cmd [[set background=light]]

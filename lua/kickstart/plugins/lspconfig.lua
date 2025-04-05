@@ -4,6 +4,7 @@ return {
     dependencies = {
       { 'williamboman/mason.nvim', opts = {} },
       { 'j-hui/fidget.nvim', opts = {} },
+      'saghen/blink.cmp',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
@@ -59,7 +60,6 @@ return {
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
       capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
       capabilities.workspace.workspaceFolders = true
 
