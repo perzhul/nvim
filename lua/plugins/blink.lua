@@ -5,11 +5,6 @@ return {
 
   -- use a release tag to download pre-built binaries
   version = '1.*',
-  -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-  -- build = 'cargo build --release',
-  -- If you use nix, you can build from source using latest nightly rust with:
-  -- build = 'nix run .#build-plugin',
-
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -27,6 +22,8 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
 
     keymap = { preset = 'default' },
+
+    
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -48,6 +45,7 @@ return {
     --
     -- See the fuzzy documentation for more information
     fuzzy = { implementation = 'prefer_rust_with_warning' },
+    signature = { enabled = true }
   },
   opts_extend = { 'sources.default' },
 }

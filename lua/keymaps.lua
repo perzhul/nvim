@@ -2,15 +2,7 @@ vim.g.mapleader = ' '
 
 local map = vim.keymap.set
 
-local browse = function()
-  if vim.fn.exists ':Oil' then
-    vim.cmd 'Oil'
-  else
-    vim.cmd 'Ex'
-  end
-end
-
-map('n', '<leader>pv', browse)
+map('n', '<leader>pv', '<cmd>Ex<cr>')
 
 -- Remove ArrowKeys
 map('n', '<Up>', '<nop>')

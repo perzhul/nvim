@@ -38,16 +38,6 @@ return {
           },
         },
         extensions = {
-          smart_open = {
-            cwd_only = true,
-            filename_first = true,
-            ignore_patterns = {
-              '*.temp/*',
-              'index.ts',
-              'ns.ts',
-            },
-            match_algorithm = 'fzf',
-          },
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -75,9 +65,7 @@ return {
       local builtin = require 'telescope.builtin'
       local map = vim.keymap.set
 
-      map('n', '<leader><leader>', function()
-        require('telescope').extensions.smart_open.smart_open()
-      end, { noremap = true, silent = true })
+      map('n', '<leader><leader>', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
       map('n', '<leader>sgh', '<cmd>Telescope git_file_history<CR>', { desc = '[S]earch [G]it [H]istory' })
       map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       map('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })

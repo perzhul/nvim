@@ -41,3 +41,7 @@ vim.opt.lazyredraw = true -- Redraw only when necessary.
 
 -- Filetype & Plugin Support
 vim.cmd 'filetype plugin indent on' -- Enable filetype detection, plugins, and indentation.
+
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.have_nerd_font = true
