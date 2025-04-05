@@ -11,14 +11,13 @@ return {
         cond = function()
           return vim.fn.executable 'make' == 1
         end,
+
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-      { 'isak102/telescope-git-file-history.nvim', dependencies = { 'tpope/vim-fugitive' } },
     },
 
     config = function()
-      local gfh_actions = require('telescope').extensions.git_file_history.actions
 
       local actions = require 'telescope.actions'
 
@@ -41,32 +40,18 @@ return {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
-          git_file_history = {
-            -- Keymaps inside the picker
-            mappings = {
-              i = {
-                ['<C-g>'] = gfh_actions.open_in_browser,
-              },
-              n = {
-                ['<C-g>'] = gfh_actions.open_in_browser,
-              },
-            },
-            browser_command = nil,
-          },
         },
       }
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-      pcall(require('telescope').load_extension, 'git_file_history')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       local map = vim.keymap.set
 
       map('n', '<leader><leader>', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
-      map('n', '<leader>sgh', '<cmd>Telescope git_file_history<CR>', { desc = '[S]earch [G]it [H]istory' })
       map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       map('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       -- map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })

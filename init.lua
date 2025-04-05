@@ -10,22 +10,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if vim.tbl_contains({ 'null-ls' }, client.name) then -- blacklist lsp
-      return
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufWritePost', {
-  pattern = { '*.ts', '*.tsx', '*.js', '*.jsx' },
-  callback = function()
-    vim.cmd 'VtsExec remove_unused_imports'
-  end,
-})
-
 -- Lazy Installation
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -34,14 +18,14 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-
 require('lazy').setup {
   'tpope/vim-sleuth',
   'catppuccin/nvim',
   require 'plugins.treesitter',
   require 'plugins.blink',
   require 'plugins.telescope',
+  require 'plugins.lspconfig',
+  require 'plugins.autopairs',
 }
 
 vim.cmd('colorscheme catppuccin')
-

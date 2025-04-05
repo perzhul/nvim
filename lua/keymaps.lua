@@ -1,5 +1,3 @@
-vim.g.mapleader = ' '
-
 local map = vim.keymap.set
 
 map('n', '<leader>pv', '<cmd>Ex<cr>')
@@ -18,9 +16,6 @@ map('n', 'gwk', '<C-w>k')
 map('n', 'gwl', '<C-w>l')
 
 map('i', 'jk', '<Esc>')
--- Repeat the last macro
-map('n', 'Q', '@@')
-
 map('v', 'J', ":m '>+1<CR>gv=gv")
 map('v', 'K', ":m '<-2<CR>gv=gv")
 
@@ -30,22 +25,16 @@ map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
--- ThePrimeagen's Remaps
-map('x', '<leader>p', [["_dP]])
-map({ 'n', 'v' }, '<leader>d', [["_d]])
-
 map('n', 'Q', '<nop>')
+
 map('n', '<leader>f', vim.lsp.buf.format)
--- map('n', '<leader>ef', '<cmd>EslintFixAll<CR>', { desc = '[E]slint [F]ix All' })
 
 map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-map('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>')
 
 map('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
 map('n', '<S-Tab>', ':bprev<CR>', { noremap = true, silent = true })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
@@ -55,10 +44,4 @@ map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rr
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- terminal escape keybinds
-map('t', '<esc>', [[<C-\><C-n>]])
 map('t', 'jk', [[<C-\><C-n>]])
-
-map('n', '<leader>j', '<cmd>cnext<CR>zz', { desc = 'Forward qflist' })
-map('n', '<leader>k', '<cmd>cprev<CR>zz', { desc = 'Backward qflist' })
