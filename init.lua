@@ -19,13 +19,18 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-  'tpope/vim-sleuth',
-  'catppuccin/nvim',
+  { 'tpope/vim-sleuth', event = "BufReadPost" },
+  { 'catppuccin/nvim' },
+  { "saecki/live-rename.nvim", config = function()
+    local live_rename = require("live-rename")
+    vim.keymap.set("n", "<leader>r", live_rename.rename, { desc = "LSP rename" })
+  end },
   require 'plugins.treesitter',
   require 'plugins.blink',
-  require 'plugins.telescope',
   require 'plugins.lspconfig',
   require 'plugins.autopairs',
+  require 'plugins.fzf',
+  require 'plugins.aerial',
 }
 
 vim.cmd('colorscheme catppuccin')
