@@ -14,11 +14,10 @@ return {
 
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
 
     config = function()
-
       local actions = require 'telescope.actions'
 
       require('telescope').setup {
@@ -32,7 +31,7 @@ return {
           mappings = {
             i = {
               ['<C-k>'] = actions.move_selection_previous, -- move to prev result
-              ['<C-j>'] = actions.move_selection_next, -- move to next result
+              ['<C-j>'] = actions.move_selection_next,     -- move to next result
             },
           },
         },
