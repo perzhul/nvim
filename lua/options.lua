@@ -34,3 +34,8 @@ vim.opt.updatetime = 50
 
 -- Filetype support
 vim.cmd 'filetype plugin indent on'
+
+vim.opt.colorcolumn = nil
+
+-- Line numbers etc in Netrw
+vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
