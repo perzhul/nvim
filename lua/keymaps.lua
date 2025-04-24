@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-map('n', '<leader>pv', '<cmd>Ex<cr>')
+map('n', '<leader>pv', '<cmd>Oil<cr>')
 
 -- Remove ArrowKeys
 map('n', '<Up>', '<nop>')
@@ -45,3 +45,12 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 
 map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('t', 'jk', [[<C-\><C-n>]])
+
+map("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+map("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+

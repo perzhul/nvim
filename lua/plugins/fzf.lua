@@ -34,7 +34,7 @@ return {
 
     },
     opts = {},
-    config = function(_, opts)
-        require("fzf-lua").setup(opts)
+    config = function()
+        require "fzf-lua".setup({ "telescope", winopts = { preview = { default = "bat" } } })
     end,
 }

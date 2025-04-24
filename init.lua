@@ -26,7 +26,28 @@ require('lazy').setup {
     local live_rename = require("live-rename")
     vim.keymap.set("n", "<leader>r", live_rename.rename, { desc = "LSP rename" })
   end },
-  { "windwp/nvim-ts-autotag", opts = {} },
+  { "windwp/nvim-ts-autotag",          opts = {} },
+  { 'projekt0n/github-nvim-theme',     name = 'github-theme' },
+  { "ellisonleao/gruvbox.nvim" },
+  { "ficcdaf/ashen.nvim" },
+  { "pustota-theme/pustota.nvim" },
+  { "nyoom-engineering/oxocarbon.nvim" },
+  { "miikanissi/modus-themes.nvim" },
+  { "rose-pine/neovim" },
+  { "sainnhe/gruvbox-material" },
+  { "stevearc/oil.nvim", opts = {
+    view_options = {
+      show_hidden = true,
+    },
+  },
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  { "onsails/lspkind.nvim", opts = {} },
   require 'plugins.treesitter',
   require 'plugins.blink',
   require 'plugins.lspconfig',
@@ -35,6 +56,9 @@ require('lazy').setup {
   require 'plugins.aerial',
   require 'plugins.treesitter-objects',
   require 'plugins.ts-autotag',
+  require 'plugins.go',
+  require 'plugins.gitsigns',
 }
 
-vim.cmd('colorscheme catppuccin')
+
+vim.cmd('colorscheme modus_operandi')
