@@ -19,37 +19,43 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-  { 'tpope/vim-sleuth',    event = "BufReadPost" },
+  { 'tpope/vim-sleuth', event = 'BufReadPost' },
   { 'catppuccin/nvim' },
-  { 'echasnovski/mini.ai', version = '*',        opts = {}, event = "VeryLazy" },
-  { "saecki/live-rename.nvim", event = "VeryLazy", config = function()
-    local live_rename = require("live-rename")
-    vim.keymap.set("n", "<leader>r", live_rename.rename, { desc = "LSP rename" })
-  end },
-  { "windwp/nvim-ts-autotag",          opts = {} },
-  { 'projekt0n/github-nvim-theme',     name = 'github-theme' },
-  { "ellisonleao/gruvbox.nvim" },
-  { "ficcdaf/ashen.nvim" },
-  { "pustota-theme/pustota.nvim" },
-  { "nyoom-engineering/oxocarbon.nvim" },
-  { "miikanissi/modus-themes.nvim" },
-  { "rose-pine/neovim" },
-  { "sainnhe/gruvbox-material" },
+  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
+  {
+    'saecki/live-rename.nvim',
+    event = 'VeryLazy',
+    config = function()
+      local live_rename = require 'live-rename'
+      vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
+    end,
+  },
+  { 'windwp/nvim-ts-autotag', opts = {} },
+  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+  { 'ellisonleao/gruvbox.nvim' },
+  { 'ficcdaf/ashen.nvim' },
+  { 'pustota-theme/pustota.nvim' },
+  { 'nyoom-engineering/oxocarbon.nvim' },
+  { 'miikanissi/modus-themes.nvim' },
+  { 'rose-pine/neovim' },
+  { 'sainnhe/gruvbox-material' },
   { 'tpope/vim-fugitive' },
   { 'folke/tokyonight.nvim' },
-  { "stevearc/oil.nvim", opts = {
-    view_options = {
-      show_hidden = true,
+  {
+    'stevearc/oil.nvim',
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
     },
-  },
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   },
   {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
-  { "onsails/lspkind.nvim", opts = {} },
+  { 'onsails/lspkind.nvim', opts = {} },
   require 'plugins.treesitter',
   require 'plugins.blink',
   require 'plugins.lspconfig',
@@ -63,5 +69,4 @@ require('lazy').setup {
   require 'plugins.conform',
 }
 
-
-vim.cmd('colorscheme tokyonight')
+vim.cmd 'colorscheme tokyonight'
