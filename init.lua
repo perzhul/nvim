@@ -35,6 +35,8 @@ require('lazy').setup {
   { "miikanissi/modus-themes.nvim" },
   { "rose-pine/neovim" },
   { "sainnhe/gruvbox-material" },
+  { 'tpope/vim-fugitive' },
+  { 'folke/tokyonight.nvim' },
   { "stevearc/oil.nvim", opts = {
     view_options = {
       show_hidden = true,
@@ -58,7 +60,8 @@ require('lazy').setup {
   require 'plugins.ts-autotag',
   require 'plugins.go',
   require 'plugins.gitsigns',
+  require 'plugins.better-ts-errors',
 }
 
 
-vim.cmd('colorscheme modus_operandi')
+vim.cmd('colorscheme tokyonight')
