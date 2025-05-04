@@ -57,10 +57,10 @@ require('lazy').setup {
   require 'plugins.fzf',
   require 'plugins.aerial',
   require 'plugins.treesitter-objects',
-  require 'plugins.ts-autotag',
   require 'plugins.go',
   require 'plugins.gitsigns',
   require 'plugins.better-ts-errors',
+  require 'plugins.conform',
 }
 
 

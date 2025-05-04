@@ -1,10 +1,10 @@
 return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPre', 'BufNewFile' },
-  ft = { "lua", "python", "javascript", "typescript", "go", "rust" },
+  ft = { 'lua', 'python', 'javascript', 'typescript', 'go', 'rust' },
   dependencies = {
-    { 'williamboman/mason.nvim', opts = {}, cmd = { "Mason", "MasonInstall", "MasonUpdate" } },
-    { 'j-hui/fidget.nvim',       opts = {} },
+    { 'williamboman/mason.nvim', opts = {}, cmd = { 'Mason', 'MasonInstall', 'MasonUpdate' } },
+    { 'j-hui/fidget.nvim', opts = {} },
     'saghen/blink.cmp',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -74,8 +74,7 @@ return {
         end,
       },
       vtsls = {},
-      protolint = {},
-      buf = {},
+      buf_ls = {},
       prettierd = {},
       prettier = {},
       jsonls = {
