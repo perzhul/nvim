@@ -90,7 +90,7 @@ return {
           },
         },
       },
-      clangd = {},
+      -- clangd = {},
       sqlls = {},
       sqlfmt = {},
       gopls = {
