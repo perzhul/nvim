@@ -69,4 +69,6 @@ require('lazy').setup {
   require 'plugins.conform',
 }
 
+vim.lsp.enable { 'protols' }
+
 vim.cmd 'colorscheme tokyonight'
