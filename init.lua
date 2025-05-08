@@ -59,7 +59,6 @@ local plugins = {
   { 'onsails/lspkind.nvim', opts = {} },
 }
 
--- 2. auto-scan lua/plugins/*.lua
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
 for _, file in ipairs(vim.fn.readdir(plugins_dir)) do
   if file:match '%.lua$' then
@@ -68,7 +67,6 @@ for _, file in ipairs(vim.fn.readdir(plugins_dir)) do
   end
 end
 
--- 3. hand everything off to lazy.nvim
 require('lazy').setup(plugins)
 
 vim.cmd [[colorscheme tokyonight]]
