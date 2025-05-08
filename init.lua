@@ -12,13 +12,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Lazy Installation
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
   vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup {
+-- 1. your hand-picked plugins
+local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
   { 'catppuccin/nvim' },
   { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
@@ -56,19 +57,18 @@ require('lazy').setup {
     opts = {},
   },
   { 'onsails/lspkind.nvim', opts = {} },
-  require 'plugins.treesitter',
-  require 'plugins.blink',
-  require 'plugins.lspconfig',
-  require 'plugins.autopairs',
-  require 'plugins.fzf',
-  require 'plugins.aerial',
-  require 'plugins.treesitter-objects',
-  require 'plugins.go',
-  require 'plugins.gitsigns',
-  require 'plugins.better-ts-errors',
-  require 'plugins.conform',
 }
 
-vim.lsp.enable { 'protols' }
+-- 2. auto-scan lua/plugins/*.lua
+local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
+for _, file in ipairs(vim.fn.readdir(plugins_dir)) do
+  if file:match '%.lua$' then
+    local name = file:gsub('%.lua$', '')
+    table.insert(plugins, require('plugins.' .. name))
+  end
+end
 
-vim.cmd 'colorscheme tokyonight'
+-- 3. hand everything off to lazy.nvim
+require('lazy').setup(plugins)
+
+vim.cmd [[colorscheme tokyonight]]
