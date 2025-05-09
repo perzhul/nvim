@@ -1,16 +1,6 @@
 require 'options'
-
 require 'keymaps'
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
--- Lazy Installation
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -18,7 +8,6 @@ if not vim.uv.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- 1. your hand-picked plugins
 local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
   { 'catppuccin/nvim' },
@@ -56,7 +45,25 @@ local plugins = {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
-  { 'onsails/lspkind.nvim', opts = {} },
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    opts = {},
+    keys = {
+      { '<leader>/', '<cmd>ToggleTerm direction=horizontal<cr>' },
+    },
+  },
+  {
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    opts = {},
+  },
+  {
+    'kylechui/nvim-surround',
+    version = '^3.0.0',
+    event = 'VeryLazy',
+    opts = {},
+  },
 }
 
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'

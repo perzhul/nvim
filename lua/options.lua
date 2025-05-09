@@ -39,3 +39,6 @@ vim.opt.colorcolumn = nil
 
 -- Line numbers etc in Netrw
 vim.cmd [[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']]
+
+vim.opt.showmode = false
+vim.opt.colorcolumn = '80'
