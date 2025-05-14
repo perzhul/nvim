@@ -38,8 +38,12 @@ map('n', '<S-Tab>', ':bprev<CR>', { noremap = true, silent = true })
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+map('n', '[d', function()
+	vim.diagnostic.jump { count = 1, float = true }
+end, { desc = 'Go to previous [D]iagnostic message' })
+map('n', ']d', function()
+	vim.diagnostic.jump { count = -1, float = true }
+end, { desc = 'Go to next [D]iagnostic message' })
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -47,9 +51,9 @@ map('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('t', 'jk', [[<C-\><C-n>]])
 
 map('n', ']t', function()
-  require('todo-comments').jump_next()
+	require('todo-comments').jump_next()
 end, { desc = 'Next todo comment' })
 
 map('n', '[t', function()
-  require('todo-comments').jump_prev()
+	require('todo-comments').jump_prev()
 end, { desc = 'Previous todo comment' })

@@ -10,8 +10,15 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
-  { 'catppuccin/nvim' },
-  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    event = 'VimEnter',
+    config = function()
+      vim.cmd.colorscheme 'catppuccin-mocha'
+    end,
+  },
+  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'InsertEnter' },
   {
     'saecki/live-rename.nvim',
     event = 'VeryLazy',
@@ -20,7 +27,7 @@ local plugins = {
       vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
     end,
   },
-  { 'windwp/nvim-ts-autotag', opts = {} },
+  { 'windwp/nvim-ts-autotag', ft = { 'html', 'htmldjango', 'xml', 'javascriptreact', 'typescriptreact' }, opts = {} },
   { 'projekt0n/github-nvim-theme', name = 'github-theme' },
   { 'ellisonleao/gruvbox.nvim' },
   { 'ficcdaf/ashen.nvim' },
@@ -29,10 +36,12 @@ local plugins = {
   { 'miikanissi/modus-themes.nvim' },
   { 'rose-pine/neovim' },
   { 'sainnhe/gruvbox-material' },
-  { 'tpope/vim-fugitive' },
+  { 'tpope/vim-fugitive', cmd = { 'Git', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite' } },
+  { 'tpope/vim-unimpaired', event = 'BufReadPost' },
   { 'folke/tokyonight.nvim' },
   {
     'stevearc/oil.nvim',
+    cmd = 'Oil',
     opts = {
       view_options = {
         show_hidden = true,
@@ -43,15 +52,8 @@ local plugins = {
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    event = 'BufReadPost',
     opts = {},
-  },
-  {
-    'akinsho/toggleterm.nvim',
-    version = '*',
-    opts = {},
-    keys = {
-      { '<leader>/', '<cmd>ToggleTerm direction=horizontal<cr>' },
-    },
   },
   {
     'catgoose/nvim-colorizer.lua',
@@ -61,9 +63,11 @@ local plugins = {
   {
     'kylechui/nvim-surround',
     version = '^3.0.0',
-    event = 'VeryLazy',
+    event = 'InsertEnter',
     opts = {},
   },
+  { 'rebelot/kanagawa.nvim' },
+  { 'artemave/workspace-diagnostics.nvim' },
 }
 
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
@@ -76,4 +80,4 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme catppuccin-mocha]]
