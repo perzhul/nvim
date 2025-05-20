@@ -140,8 +140,11 @@ return {
       '[C]ode [A]ction',
     },
   },
-  opts = {},
   config = function()
-    require('fzf-lua').setup { 'telescope', winopts = { preview = { default = 'bat' } } }
+    require('fzf-lua').setup {
+      'telescope',
+      winopts = { preview = { default = 'bat' } },
+      fzf_colors = { true, bg = '-1' },
+    }
   end,
 }

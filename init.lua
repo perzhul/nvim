@@ -14,6 +14,9 @@ local plugins = {
     'catppuccin/nvim',
     name = 'catppuccin',
     event = 'VimEnter',
+    opts = {
+      transparent_background = true,
+    },
   },
   { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
   {
@@ -32,10 +35,16 @@ local plugins = {
   { 'nyoom-engineering/oxocarbon.nvim' },
   { 'miikanissi/modus-themes.nvim' },
   { 'rose-pine/neovim' },
+  { 'EdenEast/nightfox.nvim' },
+  { 'mhartington/oceanic-next' },
+  { 'rebelot/kanagawa.nvim' },
   { 'sainnhe/gruvbox-material' },
+  { 'Tsuzat/NeoSolarized.nvim' },
   { 'tpope/vim-fugitive', cmd = { 'Git', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite' } },
   { 'tpope/vim-unimpaired', event = 'BufReadPost' },
   { 'folke/tokyonight.nvim' },
+  { 'f-person/git-blame.nvim' },
+  { 'scottmckendry/cyberdream.nvim' },
   {
     'craftzdog/solarized-osaka.nvim',
     lazy = false,
@@ -84,4 +93,4 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme solarized-osaka]]
+vim.cmd [[colorscheme catppuccin-mocha]]
