@@ -14,11 +14,8 @@ local plugins = {
     'catppuccin/nvim',
     name = 'catppuccin',
     event = 'VimEnter',
-    config = function()
-      vim.cmd.colorscheme 'catppuccin-mocha'
-    end,
   },
-  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'InsertEnter' },
+  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
   {
     'saecki/live-rename.nvim',
     event = 'VeryLazy',
@@ -40,8 +37,15 @@ local plugins = {
   { 'tpope/vim-unimpaired', event = 'BufReadPost' },
   { 'folke/tokyonight.nvim' },
   {
+    'craftzdog/solarized-osaka.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
+  {
     'stevearc/oil.nvim',
-    cmd = 'Oil',
     opts = {
       view_options = {
         show_hidden = true,
@@ -80,4 +84,4 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme catppuccin-mocha]]
+vim.cmd [[colorscheme solarized-osaka]]
