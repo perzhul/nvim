@@ -1,0 +1,188 @@
+--- Startup times for process: Primary (or UI client) ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.000  000.000: --- NVIM STARTING ---
+000.104  000.104: event init
+000.540  000.436: early init
+001.120  000.580: locale set
+001.164  000.044: init first window
+001.762  000.598: inits 1
+001.770  000.008: window checked
+001.774  000.004: parsing arguments
+002.525  000.041  000.041: require('vim.shared')
+002.617  000.037  000.037: require('vim.inspect')
+002.656  000.032  000.032: require('vim._options')
+002.659  000.130  000.060: require('vim._editor')
+002.660  000.208  000.038: require('vim._init_packages')
+002.663  000.680: init lua interpreter
+007.241  004.578: nvim_ui_attach
+007.578  000.337: nvim_set_client_info
+007.580  000.001: --- NVIM STARTED ---
+
+--- Startup times for process: Embedded ---
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.000  000.000: --- NVIM STARTING ---
+000.060  000.060: event init
+000.189  000.129: early init
+000.433  000.244: locale set
+000.459  000.026: init first window
+000.806  000.347: inits 1
+000.825  000.018: window checked
+000.828  000.003: parsing arguments
+001.235  000.036  000.036: require('vim.shared')
+001.310  000.029  000.029: require('vim.inspect')
+001.346  000.029  000.029: require('vim._options')
+001.348  000.107  000.049: require('vim._editor')
+001.349  000.177  000.033: require('vim._init_packages')
+001.351  000.346: init lua interpreter
+002.869  001.518: expanding arguments
+002.880  000.011: inits 2
+003.132  000.251: init highlight
+003.132  000.001: waiting for UI
+003.240  000.107: done waiting for UI
+003.243  000.004: clear screen
+003.363  000.011  000.011: require('vim.keymap')
+004.469  000.141  000.141: sourcing nvim_exec2()
+004.594  001.346  001.194: require('vim._defaults')
+004.595  000.006: init default mappings & autocommands
+005.506  000.263  000.263: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/ftplugin.vim
+005.813  000.186  000.186: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/indent.vim
+007.317  000.149  000.149: sourcing /Users/danil/.local/share/nvim/site/pack/tree-sitter-queries/start/tree-sitter-just/ftdetect/just.vim
+007.565  000.134  000.134: sourcing /Applications/Ghostty.app/Contents/Resources/ghostty/../nvim/site/ftdetect/ghostty.vim
+007.579  000.577  000.293: sourcing nvim_exec2() called at /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/filetype.lua:0
+007.581  000.821  000.244: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/filetype.lua
+007.661  000.015  000.015: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/ftplugin.vim
+007.720  000.008  000.008: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/indent.vim
+007.726  001.073  000.229: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+007.741  000.003  000.003: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+007.750  001.600  000.524: require('options')
+010.038  000.032  000.032: require('vim.fs')
+010.065  000.501  000.470: require('vim.lsp.log')
+011.034  000.964  000.964: require('vim.lsp.protocol')
+012.397  001.360  001.360: require('vim.lsp.util')
+013.138  000.293  000.293: require('vim.lsp.sync')
+013.142  000.743  000.450: require('vim.lsp._changetracking')
+014.018  000.296  000.296: require('vim.lsp._transport')
+014.075  000.931  000.635: require('vim.lsp.rpc')
+014.099  005.882  001.383: require('vim.lsp')
+014.876  000.004  000.004: require('vim.F')
+014.883  000.782  000.778: require('vim.lsp.buf')
+016.597  001.576  001.576: require('vim.diagnostic')
+016.650  008.898  000.658: require('keymaps')
+017.438  000.686  000.686: require('plugins.blink')
+017.679  000.238  000.238: require('plugins.conform')
+017.949  000.267  000.267: require('plugins.fzf')
+018.174  000.223  000.223: require('plugins.go')
+018.507  000.329  000.329: require('plugins.lspconfig')
+018.747  000.237  000.237: require('plugins.treesitter')
+019.015  000.267  000.267: require('lazy')
+019.084  000.057  000.057: require('ffi')
+019.411  000.313  000.313: require('vim.uri')
+019.427  000.342  000.028: require('vim.loader')
+020.053  000.607  000.607: require('lazy.stats')
+020.399  000.314  000.314: require('lazy.core.util')
+020.791  000.390  000.390: require('lazy.core.config')
+021.353  000.250  000.250: require('lazy.core.handler')
+022.181  000.229  000.229: require('lazy.pkg')
+022.184  000.546  000.316: require('lazy.core.meta')
+022.189  000.835  000.289: require('lazy.core.plugin')
+022.194  001.402  000.317: require('lazy.core.loader')
+022.690  000.272  000.272: require('lazy.core.fragments')
+024.106  000.206  000.206: require('lazy.core.handler.cmd')
+024.465  000.356  000.356: require('lazy.core.handler.keys')
+024.643  000.176  000.176: require('lazy.core.handler.event')
+024.870  000.220  000.220: require('lazy.core.handler.ft')
+024.964  000.008  000.008: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+024.973  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+025.106  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+025.410  000.210  000.210: sourcing /Users/danil/.local/share/nvim/lazy/go.nvim/ftdetect/filetype.vim
+025.413  000.262  000.052: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+025.451  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+026.116  000.268  000.268: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/filetype.lua
+026.123  000.312  000.044: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+027.111  000.194  000.194: sourcing /Users/danil/.local/share/nvim/lazy/nvim-web-devicons/plugin/nvim-web-devicons.vim
+027.113  000.242  000.048: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+027.117  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+027.122  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+027.690  000.368  000.368: require('nvim-web-devicons.filetypes')
+028.265  000.270  000.270: require('nvim-web-devicons.default.icons_by_filename')
+028.775  000.508  000.508: require('nvim-web-devicons.default.icons_by_file_extension')
+029.067  000.291  000.291: require('nvim-web-devicons.default.icons_by_operating_system')
+029.289  000.221  000.221: require('nvim-web-devicons.default.icons_by_desktop_environment')
+029.474  000.185  000.185: require('nvim-web-devicons.default.icons_by_window_manager')
+029.479  001.779  000.303: require('nvim-web-devicons.icons-default')
+029.625  003.462  001.072: require('nvim-web-devicons')
+031.442  000.003  000.003: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+031.448  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+032.120  000.583  000.583: require('oil')
+032.413  000.292  000.292: require('oil.ringbuf')
+032.650  000.235  000.235: require('oil.config')
+034.151  001.331  001.331: require('vim.filetype')
+034.868  000.155  000.155: require('oil.log')
+034.882  000.482  000.328: require('oil.fs')
+035.304  000.136  000.136: require('oil.constants')
+035.313  000.430  000.294: require('oil.util')
+035.405  000.003  000.003: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+035.410  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+035.859  000.203  000.203: sourcing /Users/danil/.local/share/nvim/lazy/conform.nvim/plugin/conform.lua
+035.861  000.251  000.048: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+035.864  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+035.869  000.001  000.001: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+036.266  000.361  000.361: require('conform')
+036.594  000.140  000.140: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/editorconfig.lua
+036.596  000.181  000.041: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+036.836  000.201  000.201: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/gzip.vim
+036.838  000.238  000.036: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+036.985  000.106  000.106: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/man.lua
+036.986  000.145  000.039: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+037.658  000.237  000.237: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+037.668  000.645  000.407: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/matchit.vim
+037.669  000.680  000.036: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+037.954  000.245  000.245: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/matchparen.vim
+037.991  000.319  000.074: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+038.096  000.053  000.053: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/netrwPlugin.vim
+038.099  000.102  000.049: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+038.283  000.142  000.142: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/osc52.lua
+038.286  000.184  000.042: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+038.690  000.140  000.140: sourcing /Users/danil/.local/share/nvim/rplugin.vim
+038.695  000.359  000.220: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/rplugin.vim
+038.696  000.406  000.047: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+038.834  000.098  000.098: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/shada.vim
+038.836  000.136  000.038: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+038.996  000.111  000.111: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/spellfile.vim
+038.997  000.156  000.045: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+039.334  000.299  000.299: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/tarPlugin.vim
+039.336  000.336  000.037: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+039.521  000.143  000.143: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/tohtml.lua
+039.524  000.185  000.042: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+039.648  000.044  000.044: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/tutor.vim
+039.650  000.086  000.043: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+039.833  000.109  000.109: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/plugin/zipPlugin.vim
+039.834  000.150  000.041: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+043.645  003.189  003.189: sourcing /Users/danil/.local/share/nvim/lazy/embark/colors/embark.vim
+044.731  004.807  001.618: sourcing nvim_exec2() called at /Users/danil/.dotfiles/nvim/init.lua:0
+044.733  038.782  005.560: sourcing /Users/danil/.config/nvim/init.lua
+044.749  000.923: sourcing vimrc file(s)
+045.126  000.124  000.124: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/syntax/synload.vim
+045.166  000.373  000.250: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/syntax/syntax.vim
+045.173  000.051: inits 3
+047.487  002.314: reading ShaDa
+047.558  000.071: opening buffers
+047.581  000.023: BufEnter autocommands
+047.583  000.001: editing files in windows
+047.609  000.026: VimEnter autocommands
+048.031  000.400  000.400: require('vim.termcap')
+048.046  000.008  000.008: require('vim.text')
+048.064  000.047: UIEnter autocommands
+048.404  000.265  000.265: sourcing /opt/homebrew/Cellar/neovim/0.11.1/share/nvim/runtime/autoload/provider/clipboard.vim
+048.407  000.078: before starting main loop
+048.547  000.141: first screen update
+048.548  000.001: --- NVIM STARTED ---
+

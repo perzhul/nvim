@@ -9,16 +9,6 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  { 'tpope/vim-sleuth', event = 'BufReadPost' },
-  {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    event = 'VimEnter',
-    opts = {
-      transparent_background = true,
-    },
-  },
-  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
   {
     'saecki/live-rename.nvim',
     event = 'VeryLazy',
@@ -27,32 +17,6 @@ local plugins = {
       vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
     end,
   },
-  { 'windwp/nvim-ts-autotag', ft = { 'html', 'htmldjango', 'xml', 'javascriptreact', 'typescriptreact' }, opts = {} },
-  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
-  { 'ellisonleao/gruvbox.nvim' },
-  { 'ficcdaf/ashen.nvim' },
-  { 'pustota-theme/pustota.nvim' },
-  { 'nyoom-engineering/oxocarbon.nvim' },
-  { 'miikanissi/modus-themes.nvim' },
-  { 'rose-pine/neovim' },
-  { 'EdenEast/nightfox.nvim' },
-  { 'mhartington/oceanic-next' },
-  { 'rebelot/kanagawa.nvim' },
-  { 'sainnhe/gruvbox-material' },
-  { 'Tsuzat/NeoSolarized.nvim' },
-  { 'tpope/vim-fugitive', cmd = { 'Git', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite' } },
-  { 'tpope/vim-unimpaired', event = 'BufReadPost' },
-  { 'folke/tokyonight.nvim' },
-  { 'f-person/git-blame.nvim' },
-  { 'scottmckendry/cyberdream.nvim' },
-  {
-    'craftzdog/solarized-osaka.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {
-      transparent = true,
-    },
-  },
   {
     'stevearc/oil.nvim',
     opts = {
@@ -60,18 +24,7 @@ local plugins = {
         show_hidden = true,
       },
     },
-    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-  },
-  {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    event = 'BufReadPost',
-    opts = {},
-  },
-  {
-    'catgoose/nvim-colorizer.lua',
-    event = 'BufReadPre',
-    opts = {},
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
   {
     'kylechui/nvim-surround',
@@ -79,10 +32,10 @@ local plugins = {
     event = 'InsertEnter',
     opts = {},
   },
-  { 'rebelot/kanagawa.nvim' },
-  { 'artemave/workspace-diagnostics.nvim' },
+  { 'embark-theme/vim', name = 'embark' },
 }
 
+-- eat and install plugins from './lua/plugins/'
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
 for _, file in ipairs(vim.fn.readdir(plugins_dir)) do
   if file:match '%.lua$' then
@@ -93,4 +46,4 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme catppuccin-mocha]]
+vim.cmd [[colorscheme embark]]
