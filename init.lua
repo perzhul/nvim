@@ -10,14 +10,6 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
-  {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    event = 'VimEnter',
-    opts = {
-      transparent_background = true,
-    },
-  },
   { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
   {
     'saecki/live-rename.nvim',
@@ -28,31 +20,9 @@ local plugins = {
     end,
   },
   { 'windwp/nvim-ts-autotag', ft = { 'html', 'htmldjango', 'xml', 'javascriptreact', 'typescriptreact' }, opts = {} },
-  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
-  { 'ellisonleao/gruvbox.nvim' },
-  { 'ficcdaf/ashen.nvim' },
-  { 'pustota-theme/pustota.nvim' },
-  { 'nyoom-engineering/oxocarbon.nvim' },
-  { 'miikanissi/modus-themes.nvim' },
-  { 'rose-pine/neovim' },
-  { 'EdenEast/nightfox.nvim' },
-  { 'mhartington/oceanic-next' },
-  { 'rebelot/kanagawa.nvim' },
-  { 'sainnhe/gruvbox-material' },
-  { 'Tsuzat/NeoSolarized.nvim' },
   { 'tpope/vim-fugitive', cmd = { 'Git', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite' } },
   { 'tpope/vim-unimpaired', event = 'BufReadPost' },
-  { 'folke/tokyonight.nvim' },
   { 'f-person/git-blame.nvim' },
-  { 'scottmckendry/cyberdream.nvim' },
-  {
-    'craftzdog/solarized-osaka.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {
-      transparent = true,
-    },
-  },
   {
     'stevearc/oil.nvim',
     opts = {
@@ -93,4 +63,4 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme catppuccin-mocha]]
+vim.cmd [[colorscheme yami]]

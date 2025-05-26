@@ -148,7 +148,6 @@ return {
       },
       dockerls = {},
       docker_compose_language_service = {},
-      volar = {},
       yamlls = {},
       stylelint = {},
       csharp_ls = {},
