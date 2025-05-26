@@ -12,6 +12,25 @@ return {
 
     completion = {
       documentation = { auto_show = true },
+      accept = {
+        auto_brackets = {
+          -- Whether to auto-insert brackets for functions
+          enabled = true,
+          -- Default brackets to use for unknown languages
+          -- Synchronously use the kind of the item to determine if brackets should be added
+          kind_resolution = {
+            enabled = true,
+            blocked_filetypes = { 'typescriptreact', 'javascriptreact', 'vue' },
+          },
+          -- Asynchronously use semantic token to determine if brackets should be added
+          semantic_token_resolution = {
+            enabled = true,
+            blocked_filetypes = { 'java' },
+            -- How long to wait for semantic tokens to return before assuming no brackets should be added
+            timeout_ms = 400,
+          },
+        },
+      },
       menu = {
         draw = {
           components = {

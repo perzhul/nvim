@@ -10,6 +10,11 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+  },
+  {
     'saecki/live-rename.nvim',
     event = 'VeryLazy',
     config = function()
@@ -32,7 +37,11 @@ local plugins = {
     event = 'InsertEnter',
     opts = {},
   },
+  { 'sainnhe/edge' },
+  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+
   { 'embark-theme/vim', name = 'embark' },
+  { 'bluz71/vim-nightfly-colors', name = 'nightfly', lazy = false, priority = 1000 },
 }
 
 -- eat and install plugins from './lua/plugins/'

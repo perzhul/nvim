@@ -31,7 +31,6 @@ return {
       end,
       desc = '[S]earch [B]ranches',
     },
-    -- { "<leader>sk",       function() require("fzf-lua").keymaps() end,                                 desc = "[S]earch [K]eymaps" },
     {
       '<leader>sw',
       function()
@@ -135,7 +134,7 @@ return {
     {
       '<leader>ca',
       function()
-        require('fzf-lua').lsp_code_actions()
+        require('fzf-lua').lsp_code_actions { silent = true }
       end,
       '[C]ode [A]ction',
     },
@@ -145,6 +144,7 @@ return {
       'telescope',
       winopts = { preview = { default = 'bat' } },
       fzf_colors = { true, bg = '-1' },
+      silent = true,
     }
   end,
 }
