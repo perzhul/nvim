@@ -11,14 +11,14 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
   { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
-  -- {
-  --   'saecki/live-rename.nvim',
-  --   event = 'VeryLazy',
-  --   config = function()
-  --     local live_rename = require 'live-rename'
-  --     vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
-  --   end,
-  -- },
+  {
+    'saecki/live-rename.nvim',
+    event = 'VeryLazy',
+    config = function()
+      local live_rename = require 'live-rename'
+      vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
+    end,
+  },
   { 'windwp/nvim-ts-autotag', ft = { 'html', 'htmldjango', 'xml', 'javascriptreact', 'typescriptreact' }, opts = {} },
   { 'tpope/vim-fugitive', cmd = { 'Git', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite' } },
   { 'tpope/vim-unimpaired', event = 'BufReadPost' },
@@ -65,6 +65,7 @@ local plugins = {
     'folke/zen-mode.nvim',
     opts = {},
   },
+  { 'ellisonleao/gruvbox.nvim' },
 }
 
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
