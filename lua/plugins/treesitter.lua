@@ -19,6 +19,7 @@ return {
       'sql',
       'go',
       'gosum',
+      'http',
     },
     auto_install = true,
     highlight = {
