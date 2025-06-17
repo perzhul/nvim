@@ -24,15 +24,6 @@ local plugins = {
   { 'tpope/vim-unimpaired', event = 'BufReadPost' },
   { 'f-person/git-blame.nvim' },
   {
-    'stevearc/oil.nvim',
-    opts = {
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-  },
-  {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = 'BufReadPost',
@@ -54,6 +45,8 @@ local plugins = {
   { 'wakatime/vim-wakatime', lazy = false, opts = {} },
   { 'folke/zen-mode.nvim', opts = {} },
   { 'ellisonleao/gruvbox.nvim' },
+  { 'jaredgorski/Mies.vim' },
+  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
 }
 
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
@@ -66,5 +59,4 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme gruvbox]]
-vim.cmd [[set background=dark]]
+vim.cmd.colorscheme 'github_light'
