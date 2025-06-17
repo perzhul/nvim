@@ -1,6 +1,5 @@
 return {
   { 'projekt0n/github-nvim-theme', name = 'github-theme' },
-
   { 'ellisonleao/gruvbox.nvim' },
   { 'ficcdaf/ashen.nvim' },
   { 'pustota-theme/pustota.nvim' },
@@ -17,9 +16,6 @@ return {
     'catppuccin/nvim',
     name = 'catppuccin',
     event = 'VimEnter',
-    opts = {
-      transparent_background = true,
-    },
   },
   {
     'craftzdog/solarized-osaka.nvim',
@@ -30,12 +26,24 @@ return {
     },
   },
   { 'scottmckendry/cyberdream.nvim' },
+  { 'navarasu/onedark.nvim' },
+  { 'Shatur/neovim-ayu' },
+  { 'ramojus/mellifluous.nvim' },
+  { 'cpwrs/americano.nvim' },
+  { 'embark-theme/vim' },
+  {
+    'zenbones-theme/zenbones.nvim',
+    dependencies = 'rktjmp/lush.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  { 'ricardoraposo/nightwolf.nvim' },
+  { 'WTFox/jellybeans.nvim' },
 
   -- monochrome
 
-  { 'danishprakash/vim-yami' },
   { 'andreasvc/vim-256noir' },
-  { 'chriskempson/base16-vim' },
+  -- { 'chriskempson/base16-vim' },
   { 'ntk148v/komau.vim' },
   { 'andreypopp/vim-colors-plain' },
   { 'karoliskoncevicius/distilled-vim' },

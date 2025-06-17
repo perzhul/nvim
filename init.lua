@@ -11,14 +11,14 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
   { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
-  {
-    'saecki/live-rename.nvim',
-    event = 'VeryLazy',
-    config = function()
-      local live_rename = require 'live-rename'
-      vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
-    end,
-  },
+  -- {
+  --   'saecki/live-rename.nvim',
+  --   event = 'VeryLazy',
+  --   config = function()
+  --     local live_rename = require 'live-rename'
+  --     vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
+  --   end,
+  -- },
   { 'windwp/nvim-ts-autotag', ft = { 'html', 'htmldjango', 'xml', 'javascriptreact', 'typescriptreact' }, opts = {} },
   { 'tpope/vim-fugitive', cmd = { 'Git', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite' } },
   { 'tpope/vim-unimpaired', event = 'BufReadPost' },
@@ -49,8 +49,22 @@ local plugins = {
     event = 'InsertEnter',
     opts = {},
   },
-  { 'rebelot/kanagawa.nvim' },
   { 'artemave/workspace-diagnostics.nvim' },
+  { 'embark-theme/vim' },
+  { 'folke/flash.nvim' },
+  { 'eandrju/cellular-automaton.nvim' },
+  { 'wakatime/vim-wakatime', lazy = false, opts = {} },
+  {
+    'TrippW/todo.nvim',
+    config = function()
+      local todo = require 'todo'
+      vim.keymap.set('n', '<leader>td', todo.toggle)
+    end,
+  },
+  {
+    'folke/zen-mode.nvim',
+    opts = {},
+  },
 }
 
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
@@ -63,4 +77,5 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme yami]]
+vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[set background=dark]]
