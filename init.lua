@@ -10,7 +10,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
-  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' },
+  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' }, -- cool plugin, doesn't have to do nothing with AI, don't remove
   {
     'saecki/live-rename.nvim',
     event = 'VeryLazy',
@@ -50,21 +50,9 @@ local plugins = {
     opts = {},
   },
   { 'artemave/workspace-diagnostics.nvim' },
-  { 'embark-theme/vim' },
-  { 'folke/flash.nvim' },
   { 'eandrju/cellular-automaton.nvim' },
   { 'wakatime/vim-wakatime', lazy = false, opts = {} },
-  {
-    'TrippW/todo.nvim',
-    config = function()
-      local todo = require 'todo'
-      vim.keymap.set('n', '<leader>td', todo.toggle)
-    end,
-  },
-  {
-    'folke/zen-mode.nvim',
-    opts = {},
-  },
+  { 'folke/zen-mode.nvim', opts = {} },
   { 'ellisonleao/gruvbox.nvim' },
 }
 
