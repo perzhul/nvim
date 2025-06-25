@@ -1,7 +1,5 @@
 local map = vim.keymap.set
 
-map('n', '<leader>pv', '<cmd>Oil<cr>')
-
 -- Remove ArrowKeys
 map('n', '<Up>', '<nop>')
 map('n', '<Down>', '<nop>')
@@ -38,10 +36,10 @@ map('n', '<S-Tab>', ':bprev<CR>', { noremap = true, silent = true })
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-map('n', '[d', function()
+map('n', ']d', function()
   vim.diagnostic.jump { count = 1, float = true }
 end, { desc = 'Go to previous [D]iagnostic message' })
-map('n', ']d', function()
+map('n', '[d', function()
   vim.diagnostic.jump { count = -1, float = true }
 end, { desc = 'Go to next [D]iagnostic message' })
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })

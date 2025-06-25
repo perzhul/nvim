@@ -1,6 +1,13 @@
 require 'options'
 require 'keymaps'
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'http',
+  callback = function()
+    vim.bo.commentstring = '# %s' -- helpful for `rest.nvim`
+  end,
+})
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -22,27 +29,6 @@ local plugins = {
   { 'windwp/nvim-ts-autotag', ft = { 'html', 'htmldjango', 'xml', 'javascriptreact', 'typescriptreact' }, opts = {} },
   { 'tpope/vim-fugitive', cmd = { 'Git', 'Gdiffsplit', 'Gvdiffsplit', 'Gread', 'Gwrite' } },
   { 'tpope/vim-unimpaired', event = 'BufReadPost' },
-  { 'f-person/git-blame.nvim' },
-  {
-    'stevearc/oil.nvim',
-    opts = {
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-  },
-  {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    event = 'BufReadPost',
-    opts = {},
-  },
-  {
-    'catgoose/nvim-colorizer.lua',
-    event = 'BufReadPre',
-    opts = {},
-  },
   {
     'kylechui/nvim-surround',
     version = '^3.0.0',
@@ -54,6 +40,8 @@ local plugins = {
   { 'wakatime/vim-wakatime', lazy = false, opts = {} },
   { 'folke/zen-mode.nvim', opts = {} },
   { 'ellisonleao/gruvbox.nvim' },
+  { 'jaredgorski/Mies.vim' },
+  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
 }
 
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
@@ -66,5 +54,11 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd [[colorscheme gruvbox]]
-vim.cmd [[set background=dark]]
+vim.cmd.colorscheme 'mies'
+
+local hr = tonumber(os.date('%H', os.time()))
+if hr > 6 and hr < 20 then
+  vim.o.background = 'light'
+else
+  vim.opt.background = 'dark'
+end
