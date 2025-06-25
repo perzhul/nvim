@@ -1,7 +1,7 @@
 return {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
-  dependencies = { 'rafamadriz/friendly-snippets', 'onsails/lspkind.nvim' },
+  dependencies = { { 'nvim-tree/nvim-web-devicons', opts = {} }, 'rafamadriz/friendly-snippets', 'onsails/lspkind.nvim' },
   event = 'InsertEnter',
   -- use a release tag to download pre-built binaries
   version = '1.*',
