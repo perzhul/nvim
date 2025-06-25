@@ -5,13 +5,48 @@ return {
   config = function()
     local telescope = require 'telescope'
     local builtin = require 'telescope.builtin'
+    local actions = require 'telescope.actions'
 
     telescope.setup {
       defaults = {
         layout_strategy = 'horizontal',
-        layout_config = { prompt_position = 'top' },
-        sorting_strategy = 'ascending',
+        layout_config = { prompt_position = 'bottom' },
+        sorting_strategy = 'descending',
         winblend = 0,
+        mappings = {
+          i = {
+            ['<C-j>'] = actions.move_selection_next,
+            ['<C-k>'] = actions.move_selection_previous,
+            -- preview scroll
+            ['<C-u>'] = actions.preview_scrolling_up,
+            ['<C-d>'] = actions.preview_scrolling_down,
+
+            -- open in different modes
+            ['<CR>'] = actions.select_default,
+            ['<C-s>'] = actions.select_horizontal,
+            ['<C-v>'] = actions.select_vertical,
+            ['<C-t>'] = actions.select_tab,
+
+            -- quickfix
+            ['<C-q>'] = actions.send_to_qflist + actions.open_qflist,
+          },
+          n = {
+            ['<C-j>'] = actions.move_selection_next,
+            ['<C-k>'] = actions.move_selection_previous,
+            -- preview scroll
+            ['<C-u>'] = actions.preview_scrolling_up,
+            ['<C-d>'] = actions.preview_scrolling_down,
+
+            -- open in different modes
+            ['<CR>'] = actions.select_default,
+            ['<C-s>'] = actions.select_horizontal,
+            ['<C-v>'] = actions.select_vertical,
+            ['<C-t>'] = actions.select_tab,
+
+            -- quickfix
+            ['<C-q>'] = actions.send_to_qflist + actions.open_qflist,
+          },
+        },
       },
       pickers = {
         colorscheme = {
