@@ -17,6 +17,15 @@ return {
       end,
       group = format_sync_grp,
     })
+
+    -- Mappings
+    local map = vim.keymap.set
+
+    map('n', '<leader>gr', '<cmd>:GoRun<cr>')
+    map('n', '<leader>ie', '<cmd>:GoIfErr<cr>')
+    map('n', '<leader>fs', '<cmd>:GoFillStruct<cr>')
+    map('n', '<leader>at', '<cmd>:GoAddTag<cr>')
+    map('n', '<leader>rt', '<cmd>:GoRmTag<cr>')
   end,
   event = { 'CmdlineEnter' },
   ft = { 'go', 'gomod' },
