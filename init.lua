@@ -42,6 +42,9 @@ local plugins = {
   { 'ellisonleao/gruvbox.nvim' },
   { 'jaredgorski/Mies.vim' },
   { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+  { 'forest-nvim/sequoia.nvim' },
+  { 'rose-pine/neovim' },
+  { 'rebelot/kanagawa.nvim' },
 }
 
 local plugins_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
@@ -54,11 +57,11 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd.colorscheme 'mies'
+vim.cmd.colorscheme 'kanagawa'
 
-local hr = tonumber(os.date('%H', os.time()))
-if hr > 6 and hr < 20 then
-  vim.o.background = 'light'
-else
-  vim.opt.background = 'dark'
-end
+-- local hr = tonumber(os.date('%H', os.time()))
+-- if hr > 6 and hr < 20 then
+--   vim.o.background = 'light'
+-- else
+--   vim.opt.background = 'dark'
+-- end

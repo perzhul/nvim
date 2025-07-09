@@ -16,10 +16,10 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = 'yes'
 
 -- Indentation
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+vim.opt.tabstop = 8 -- how tab characters are displayed
+vim.opt.softtabstop = 4 -- how many spaces <Tab> inserts
+vim.opt.shiftwidth = 4 -- indentation width
+vim.opt.expandtab = false -- use actual tabs, not spaces
 
 -- Search
 vim.opt.hlsearch = true

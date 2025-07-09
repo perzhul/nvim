@@ -57,3 +57,10 @@ end, { desc = 'Next todo comment' })
 map('n', '[t', function()
   require('todo-comments').jump_prev()
 end, { desc = 'Previous todo comment' })
+
+-- copy full file path
+map('n', '<leader>pa', function()
+  local path = vim.fn.expand '%:p'
+  vim.fn.setreg('+', path)
+  print('file:', path)
+end)
