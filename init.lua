@@ -17,13 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   { 'tpope/vim-sleuth', event = 'BufReadPost' },
-  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' }, -- cool plugin, doesn't have to do nothing with AI, don't remove
+  { 'echasnovski/mini.ai', version = '*', opts = {}, event = 'VeryLazy' }, -- cool plugin, doesn't have nothing to do with AI, don't remove
   {
     'saecki/live-rename.nvim',
     event = 'VeryLazy',
     config = function()
-      local live_rename = require 'live-rename'
-      vim.keymap.set('n', '<leader>r', live_rename.rename, { desc = 'LSP rename' })
+      vim.keymap.set('n', '<leader>r', require('live-rename').rename, { desc = 'LSP rename' })
     end,
   },
   { 'windwp/nvim-ts-autotag', ft = { 'html', 'htmldjango', 'xml', 'javascriptreact', 'typescriptreact' }, opts = {} },
@@ -38,7 +37,11 @@ local plugins = {
   { 'artemave/workspace-diagnostics.nvim' },
   { 'eandrju/cellular-automaton.nvim' },
   { 'wakatime/vim-wakatime', lazy = false, opts = {} },
-  { 'folke/zen-mode.nvim', opts = {} },
+  { 'folke/zen-mode.nvim', opts = {
+    window = {
+      width = 120,
+    },
+  } },
   { 'ellisonleao/gruvbox.nvim' },
   { 'jaredgorski/Mies.vim' },
   { 'projekt0n/github-nvim-theme', name = 'github-theme' },
@@ -57,7 +60,7 @@ end
 
 require('lazy').setup(plugins)
 
-vim.cmd.colorscheme 'kanagawa'
+vim.cmd.colorscheme 'github_dark'
 
 -- local hr = tonumber(os.date('%H', os.time()))
 -- if hr > 6 and hr < 20 then
